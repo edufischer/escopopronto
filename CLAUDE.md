@@ -75,22 +75,25 @@ Services não conhecem o Express, são independentes de framework.
 
 ## Design
 
-- Inspiração visual: Resend.com
+- Inspiração: Resend.com (tipografia, espaçamento, cores),
+  Linear.app (movimento), Apple iOS atual (glassmorphism)
 - Tema: escuro (#0A0A0A de fundo)
-- Fonte: Inter (Google Fonts)
+- Fonte: Inter (Google Fonts), pesos 400 e 500 apenas
 - Cor primária / ações: verde (#22C55E)
 - Texto principal: branco (#FFFFFF)
 - Texto secundário: cinza (#A1A1AA)
 - Ícones: Lucide React
-- SEM gradientes coloridos
+- Glassmorphism: bg rgba(255,255,255,0.05) + backdrop-blur-md +
+  border rgba(255,255,255,0.1)
+- Aurora hero: radial-gradient animado com #22C55E em baixa opacidade
+- Animações de scroll: Framer Motion com whileInView + viewport once
+- Gradiente Aurora sutil em verde (#22C55E com 5% a 15% opacity) no hero
+- Transições de página fluidas com Framer Motion
+- SEM gradientes coloridos nas seções internas
 - SEM sombras exageradas
 - SEM cards inflados
 - SEM visual genérico de IA
-- Espaçamento amplo, hierarquia clara, sensação de SaaS profissional
-- Animações de entrada com Framer Motion (suaves, sem exagero)
-- Gradiente Aurora sutil em verde (#22C55E com baixa opacidade) no hero da landing page
-- Transições de página fluidas
-- Referências visuais: Resend.com, Linear.app, Vercel.com
+- Espaçamento amplo, hierarquia clara, sensação de SaaS premium
 
 ---
 
@@ -133,9 +136,9 @@ Services não conhecem o Express, são independentes de framework.
 | rascunho | Criado, IA ainda não processou |
 | processando | IA gerando escopo |
 | gerado | Escopo disponível para revisão |
-| em aprovação | Enviado ao supervisor |
+| em_aprovacao | Enviado ao supervisor |
 | aprovado | Supervisor aprovou |
-| ajuste solicitado | Supervisor pediu revisão |
+| ajuste_solicitado | Supervisor pediu revisão |
 | recusado | Supervisor recusou |
 | falha | Erro na geração da IA |
 
