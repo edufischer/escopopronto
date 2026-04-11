@@ -118,6 +118,11 @@ O sucesso do EscopoCerto é medido pela distância entre o que Roberto descreveu
 - Autenticação de usuários com perfis distintos (comercial)
 - Criação e envio de briefings em linguagem natural
 - Processamento do briefing via RAG com base de conhecimento fictícia
+- Integração com Claude API (Anthropic) para geração de escopo via linguagem natural
+- Arquitetura RAG com base de conhecimento vetorial (pgvector via Supabase) para respostas fundamentadas em projetos reais
+- Geração de embeddings via OpenAI Embeddings API para indexação da base de conhecimento
+- Prompt Engineering estruturado para geração consistente de escopo, squad e estimativas
+- Tratamento de respostas não determinísticas da IA com validação de schema antes de persistir no banco
 - Geração automática de escopo, squad sugerido, horas estimadas, custo e viabilidade
 - Revisão do escopo gerado pelo comercial antes do envio
 - Versionamento de escopo por geração (v1, v2, v3...)
@@ -160,3 +165,89 @@ O sucesso do EscopoCerto é medido pela distância entre o que Roberto descreveu
 - Geração automática de proposta comercial em PDF
 - Módulo de templates de escopo por segmento de cliente
 - API pública para integração com sistemas externos
+
+## 4. Funcionalidades , Requisitos Funcionais
+
+### 4.1 Módulo de Autenticação
+
+- O sistema deve permitir cadastro e login de usuários com e-mail e senha
+- A senha deve ser armazenada com hash bcrypt, nunca em texto puro
+- O sistema deve gerar um token JWT a cada login com expiração configurável
+- O sistema deve invalidar a sessão ao expirar o token
+- O sistema deve diferenciar perfis de acesso (comercial)
+- Rotas protegidas devem retornar erro 401 para requisições sem token válido
+
+### 4.2 Módulo de Briefing
+
+- O comercial deve conseguir criar um novo briefing a partir do dashboard
+- O formulário de briefing deve conter os seguintes campos:
+  - Nome do cliente (texto, obrigatório)
+  - Segmento de atuação (texto, obrigatório)
+  - Descrição do problema em linguagem natural (texto longo, obrigatório)
+  - Prazo esperado pelo cliente (data, obrigatório)
+  - Orçamento aproximado (valor, opcional)
+- O sistema deve validar todos os campos obrigatórios antes de processar
+- O sistema deve sanitizar todos os inputs contra XSS e SQL Injection
+- O briefing deve ser salvo com status "rascunho" antes do processamento
+- O comercial deve conseguir visualizar, editar e excluir briefings em rascunho
+
+### 4.3 Módulo de Processamento IA (RAG)
+
+- Ao submeter o briefing, o sistema deve atualizar o status para "processando"
+- O sistema deve buscar na base de conhecimento via pgvector os projetos mais similares ao briefing
+- O sistema deve montar o prompt com o briefing mais o contexto recuperado e enviar para a Claude API
+- A Claude API deve retornar um escopo estruturado contendo:
+  - Escopo preliminar descritivo
+  - Squad sugerido (perfis e quantidade)
+  - Horas estimadas por perfil
+  - Custo estimado total
+  - Nível de viabilidade (alta, média, baixa)
+  - Observações e riscos identificados
+- O sistema deve validar o schema da resposta antes de persistir no banco
+- Em caso de resposta inválida ou timeout (máximo 10s), o sistema deve tentar novamente até 2 vezes
+- Após 2 tentativas sem sucesso, o sistema deve salvar o briefing com flag "falha_geracao" e status "falha"
+- O sistema deve exibir mensagem clara ao comercial em caso de falha, sem expor erro técnico
+- Cada geração bem-sucedida deve criar uma nova versão do escopo (v1, v2, v3...)
+
+### 4.4 Módulo de Revisão
+
+- Após a geração, o comercial deve visualizar o escopo completo na tela de detalhe do briefing
+- O comercial deve conseguir visualizar o histórico de versões do escopo
+- O comercial deve conseguir reprocessar o briefing para gerar uma nova versão
+- O sistema deve indicar claramente qual é a versão mais recente
+- O comercial só deve conseguir enviar para aprovação a versão mais recente
+
+### 4.5 Módulo de Notificação
+
+- Ao enviar para aprovação, o sistema deve gerar um token UUID v4 único para aquele briefing
+- O token deve ser armazenado como hash no banco, nunca em texto puro
+- O token deve ter expiração de 48 horas a partir da geração
+- O token deve ser de uso único, invalidado após o primeiro acesso válido
+- O sistema deve enviar um e-mail ao supervisor via Gmail API contendo:
+  - Notificação de novo briefing aguardando aprovação
+  - Nome do cliente e segmento
+  - Link tokenizado para a tela de aprovação
+  - Prazo de expiração do link
+- O e-mail não deve conter valores, horas ou dados sensíveis do escopo
+- O sistema deve registrar o envio do e-mail no log com timestamp
+
+### 4.6 Módulo de Aprovação
+
+- O supervisor deve acessar a tela de aprovação exclusivamente via link tokenizado
+- O sistema deve validar o token antes de exibir qualquer dado (hash + expiração + uso único)
+- Token inválido ou expirado deve exibir página de erro clara, sem expor dados
+- A tela de aprovação deve exibir o escopo completo, squad, horas, custo e viabilidade
+- O supervisor deve conseguir registrar uma das três decisões:
+  - Aprovar, escopo aceito sem alterações
+  - Solicitar ajuste, escopo precisa ser revisado com comentário obrigatório
+  - Recusar, proposta inviável com comentário obrigatório
+- Após a decisão, o token deve ser invalidado imediatamente
+- O sistema deve registrar a decisão no log de auditoria (ator, decisão, versão, timestamp)
+
+### 4.7 Módulo de Status e Histórico
+
+- O dashboard do comercial deve exibir o resumo de briefings por status
+- O comercial deve conseguir filtrar briefings por status (rascunho, processando, gerado, em aprovação, aprovado, ajuste solicitado, recusado, falha)
+- O sistema deve atualizar o status do briefing em tempo real após cada etapa
+- O comercial deve conseguir visualizar o histórico completo de um briefing, incluindo todas as versões de escopo e decisões registradas
+- O sistema deve exibir o comentário do supervisor quando houver ajuste solicitado ou recusa
