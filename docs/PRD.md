@@ -400,7 +400,7 @@ São duas tarefas com características distintas. A OpenAI Embeddings é o servi
 |---|---|---|
 | React + Vite | Frontend | Ecossistema consolidado, build rápido, padrão de mercado |
 | Tailwind + Shadcn | Estilização | Componentes prontos e elegantes, evita visual genérico |
-| Node.js + Express | Backend | Stack já utilizada no SIGOR, consistência no portfólio |
+| Node.js + Express | Backend | Stack favorita |
 | PostgreSQL via Supabase | Banco relacional | Mais robusto que MySQL, suporte nativo a pgvector |
 | pgvector via Supabase | Busca vetorial | Resolve banco relacional e RAG na mesma plataforma |
 | Claude API | Geração de escopo | Superior para texto estruturado e raciocínio |
@@ -409,7 +409,7 @@ São duas tarefas com características distintas. A OpenAI Embeddings é o servi
 | UUID v4 + hash | Tokens de aprovação | Seguro, único, sem exposição do valor real |
 | Nodemailer + Gmail API | E-mail | Gratuito, confiável, e-mail real sem serviço pago |
 | Helmet.js | Segurança de headers | Middleware padrão de mercado para Express |
-| Railway | Deploy | Já utilizado no SIGOR, suporte a Node.js e PostgreSQL |
+| Railway | Deploy | Já utilizado em outros projetos, suporte a Node.js e PostgreSQL |
 
 ### 6.5 Fluxo de Dados Completo
 
@@ -1610,4 +1610,1124 @@ Orçamento: R$ 50.000
     estimativa, recomendo negociar redução de escopo ou ajuste
     de valor antes de fechar."
 }
+```
+
+## 12. Glossário
+
+Glossário de termos técnicos e de negócio utilizados neste documento.
+Serve como referência para qualquer pessoa que leia o PRD, independente
+de formação técnica ou área de atuação.
+
+---
+
+**Autenticação**
+Processo de verificar a identidade de um usuário antes de conceder
+acesso ao sistema. No EscopoCerto é feita via e-mail e senha,
+gerando um token JWT após login bem-sucedido.
+
+---
+
+**Backlog**
+Lista priorizada de funcionalidades, melhorias e correções a serem
+desenvolvidas em um produto. Gerenciado pelo Product Owner.
+
+---
+
+**Bcrypt**
+Algoritmo de hash utilizado para armazenar senhas de forma segura.
+Transforma a senha em uma sequência irreversível de caracteres,
+impossibilitando a recuperação da senha original mesmo com acesso
+ao banco de dados.
+
+---
+
+**Briefing**
+Documento ou registro contendo as informações coletadas pelo
+comercial durante a reunião com o cliente. No EscopoCerto é
+preenchido em linguagem natural e serve como base para a geração
+de escopo pela IA.
+
+---
+
+**Claude API**
+Interface de programação fornecida pela Anthropic para acesso ao
+modelo de linguagem Claude. Utilizada no EscopoCerto para geração
+de escopo, estimativas de squad e análise de viabilidade.
+
+---
+
+**CORS**
+Cross-Origin Resource Sharing. Mecanismo de segurança do navegador
+que controla quais domínios podem fazer requisições à API. No
+EscopoCerto é configurado para aceitar requisições apenas do
+domínio do frontend em produção.
+
+---
+
+**Deploy**
+Processo de publicar o sistema em um ambiente de produção,
+tornando-o acessível aos usuários finais. No EscopoCerto é
+realizado via Railway.
+
+---
+
+**Embedding**
+Representação numérica (vetor) de um texto que captura seu
+significado semântico. Gerado pela OpenAI Embeddings API e
+utilizado pelo pgvector para encontrar projetos similares na
+base de conhecimento.
+
+---
+
+**Épico**
+Agrupamento de user stories relacionadas que representam uma
+funcionalidade maior do produto. No PRD do EscopoCerto os épicos
+são: Autenticação, Briefing, IA, Aprovação e Segurança.
+
+---
+
+**Escopo**
+Definição clara e documentada do que será desenvolvido em um
+projeto de software, incluindo funcionalidades, tecnologias,
+prazo e custo estimados. O principal entregável gerado pelo
+EscopoCerto.
+
+---
+
+**Fallback**
+Comportamento alternativo do sistema quando uma operação falha.
+No EscopoCerto o fallback da IA exibe uma mensagem clara ao
+usuário e salva o briefing com flag de falha, permitindo
+reprocessamento manual.
+
+---
+
+**Gap de escopo**
+Diferença entre o que o cliente descreveu e o que foi
+desenvolvido. Principal problema que o EscopoCerto resolve,
+reduzindo interpretações divergentes entre comercial e técnico.
+
+---
+
+**Glassmorphism**
+Estilo visual que simula vidro fosco, com fundo semitransparente,
+desfoque (blur) e borda sutil. Utilizado no design do EscopoCerto
+em cards, modais e elementos de interface.
+
+---
+
+**Gmail API**
+Interface de programação do Google para envio e leitura de
+e-mails via Gmail. Utilizada no EscopoCerto para envio do
+e-mail de notificação ao supervisor com o link de aprovação.
+
+---
+
+**Hash**
+Transformação irreversível de um dado em uma sequência fixa de
+caracteres. Utilizado no EscopoCerto para armazenar tokens UUID
+no banco sem expor o valor original.
+
+---
+
+**Helmet.js**
+Biblioteca Node.js que configura automaticamente headers HTTP de
+segurança, protegendo o sistema contra vulnerabilidades comuns
+como clickjacking, sniffing e XSS via headers.
+
+---
+
+**JWT**
+JSON Web Token. Formato de token usado para autenticação stateless.
+Contém informações do usuário assinadas digitalmente, eliminando a
+necessidade de armazenar sessões no servidor.
+
+---
+
+**Layered Architecture**
+Padrão de arquitetura de software que organiza o sistema em
+camadas com responsabilidades bem definidas. No EscopoCerto
+são 4 camadas: Apresentação, Aplicação, Serviço e Dados.
+
+---
+
+**LGPD**
+Lei Geral de Proteção de Dados. Legislação brasileira que
+regulamenta o tratamento de dados pessoais. Relevante para
+o EscopoCerto na proteção dos dados de clientes cadastrados
+nos briefings.
+
+---
+
+**Multi-tenant**
+Arquitetura onde um único sistema atende múltiplas empresas
+(tenants) de forma isolada. O EscopoCerto tem estrutura
+preparada para multi-tenant em versões futuras, sem
+implementação na v1.
+
+---
+
+**OpenAI Embeddings API**
+Interface de programação da OpenAI especializada em transformar
+textos em vetores numéricos (embeddings). Utilizada no EscopoCerto
+para indexar a base de conhecimento e transformar briefings em
+vetores para busca por similaridade.
+
+---
+
+**pgvector**
+Extensão do PostgreSQL para armazenamento e busca eficiente de
+vetores numéricos. Utilizada no EscopoCerto via Supabase para
+encontrar projetos similares ao briefing através de busca
+por similaridade semântica.
+
+---
+
+**PRD**
+Product Requirements Document. Documento que descreve o produto,
+suas funcionalidades, requisitos e decisões técnicas. Este
+documento é o PRD do EscopoCerto.
+
+---
+
+**Prompt Engineering**
+Técnica de estruturar instruções para modelos de linguagem de
+forma a obter respostas mais precisas, consistentes e úteis.
+Utilizado no EscopoCerto para garantir que a Claude API gere
+escopos no formato esperado com as informações corretas.
+
+---
+
+**RAG**
+Retrieval-Augmented Generation. Técnica que combina busca em
+base de dados com geração de texto por IA. Em vez de responder
+apenas com conhecimento genérico, a IA consulta dados reais
+antes de gerar a resposta. No EscopoCerto o RAG usa projetos
+históricos para fundamentar as estimativas geradas.
+
+---
+
+**Railway**
+Plataforma de deploy em nuvem utilizada para hospedar o backend
+e o banco de dados do EscopoCerto em produção.
+
+---
+
+**Rate Limiting**
+Mecanismo que limita o número de requisições que um usuário
+ou IP pode fazer em um determinado período. Protege o sistema
+contra abuso, ataques de força bruta e uso excessivo da API de IA.
+
+---
+
+**Retry**
+Tentativa automática de reexecutar uma operação que falhou.
+No EscopoCerto o sistema tenta até 2 vezes chamar a Claude API
+antes de registrar falha e acionar o fallback.
+
+---
+
+**Squad**
+Equipe de desenvolvimento responsável por um projeto. No
+EscopoCerto o squad sugerido pela IA inclui perfis como
+Tech Lead, Dev Pleno e Dev Júnior com suas respectivas
+estimativas de horas.
+
+---
+
+**SQL Injection**
+Ataque que insere comandos SQL maliciosos em campos de entrada
+para manipular o banco de dados. Prevenido no EscopoCerto via
+queries parametrizadas e sanitização de inputs.
+
+---
+
+**Stateless**
+Arquitetura onde o servidor não armazena estado da sessão entre
+requisições. O JWT permite autenticação stateless pois o token
+carrega as informações do usuário sem necessidade de sessão
+no servidor.
+
+---
+
+**Supabase**
+Plataforma que fornece PostgreSQL gerenciado com funcionalidades
+adicionais incluindo pgvector para busca vetorial. Utilizada no
+EscopoCerto como banco de dados principal e motor de RAG.
+
+---
+
+**Token UUID**
+Identificador único universal gerado aleatoriamente, utilizado
+como token de acesso seguro para a tela de aprovação do
+supervisor. No EscopoCerto o token é de uso único, expira em
+48 horas e é armazenado apenas como hash no banco de dados.
+
+---
+
+**User Story**
+Descrição de uma funcionalidade do ponto de vista do usuário,
+no formato "Como [usuário], quero [funcionalidade] para
+[benefício]". Utilizada para descrever os requisitos do
+EscopoCerto de forma orientada ao valor entregue.
+
+---
+
+**Versionamento de escopo**
+Mecanismo que cria uma nova versão do escopo a cada
+reprocessamento, preservando o histórico completo. No
+EscopoCerto cada geração cria v1, v2, v3... sem sobrescrever
+versões anteriores.
+
+---
+
+**XSS**
+Cross-Site Scripting. Ataque que injeta código JavaScript
+malicioso em páginas web através de campos de entrada.
+Prevenido no EscopoCerto via sanitização de todos os inputs
+antes de processar ou exibir dados.
+
+## 13. Premissas e Dependências
+
+### 13.1 Premissas
+
+Premissas são condições que assumimos como verdadeiras para que o
+sistema funcione conforme projetado. Se alguma delas mudar, o impacto
+precisa ser reavaliado.
+
+---
+
+**P01, Acesso ao e-mail corporativo pelo supervisor**
+Assume-se que o supervisor tem acesso regular ao e-mail informado
+pelo comercial no momento do envio para aprovação. Se o supervisor
+não acessar o e-mail em até 48 horas, o token expirará e o comercial
+precisará reenviar.
+
+**P02, Conexão com internet durante o uso**
+O sistema é web e depende de conexão com internet tanto para o
+comercial preencher o briefing quanto para o supervisor acessar
+o link de aprovação. Não há suporte a modo offline.
+
+**P03, Base de conhecimento mantida manualmente na v1**
+A base de projetos fictícios em `knowledge-base/projetos.json` é
+atualizada manualmente pela equipe técnica. Não há interface de
+administração para inclusão de novos projetos na v1.
+
+**P04, Um perfil de acesso na v1**
+O sistema contempla apenas o perfil "comercial" com login próprio.
+O supervisor acessa exclusivamente via token de aprovação, sem
+cadastro ou painel dedicado na v1.
+
+**P05, Stack tecnológica estável**
+Assume-se que as APIs externas utilizadas (Claude API, OpenAI
+Embeddings, Gmail API) permanecem disponíveis e com contratos
+de uso compatíveis com o volume do projeto durante o período
+de desenvolvimento e operação inicial.
+
+**P06, Dados dos briefings são fictícios no portfólio**
+Para fins de demonstração pública do projeto, todos os briefings
+e escopos exibidos no portfólio usam dados fictícios. Nenhum
+dado real de cliente é utilizado.
+
+**P07, Orçamento do cliente é opcional**
+O campo de orçamento no formulário de briefing é opcional. A IA
+gera estimativas baseadas na complexidade do projeto mesmo sem
+essa informação, mas orçamento informado melhora a análise de
+viabilidade.
+
+**P08, Supervisor confia no e-mail remetente**
+Assume-se que o supervisor reconhece o e-mail enviado pelo sistema
+como legítimo. O domínio do remetente e a identidade visual do
+e-mail devem ser consistentes para evitar que o e-mail seja
+tratado como spam.
+
+---
+
+### 13.2 Dependências
+
+Dependências são serviços, ferramentas ou condições externas que
+o sistema precisa para funcionar. Falha em qualquer dependência
+impacta diretamente o EscopoCerto.
+
+---
+
+**D01, Claude API (Anthropic)**
+Dependência crítica. Toda a geração de escopo depende da
+disponibilidade desta API. Impacto em caso de falha: módulo de
+geração indisponível. Mitigação: fallback com retry automático
+(2 tentativas) e flag de falha no banco para reprocessamento
+manual.
+
+**D02, OpenAI Embeddings API**
+Dependência crítica para o RAG. Sem ela o sistema não consegue
+transformar briefings em vetores para busca por similaridade.
+Impacto em caso de falha: geração de escopo indisponível.
+Mitigação: mesma cadeia de retry e fallback da Claude API.
+
+**D03, Supabase (PostgreSQL + pgvector)**
+Dependência crítica. Toda a persistência de dados e a busca
+vetorial dependem do Supabase. Impacto em caso de falha: sistema
+completamente indisponível. Mitigação: Supabase tem SLA de 99.9%
+no plano pago e backups automáticos diários.
+
+**D04, Gmail API (Google)**
+Dependência importante para o fluxo de aprovação. Sem ela
+o e-mail ao supervisor não é enviado. Impacto em caso de
+falha: fluxo de aprovação interrompido, mas briefing salvo
+no banco. Mitigação: log de falha + opção de reenvio manual
+pelo comercial.
+
+**D05, Railway (deploy)**
+Dependência de infraestrutura. O backend e o banco rodam no
+Railway. Impacto em caso de falha: sistema completamente
+indisponível. Mitigação: Railway tem histórico de alta
+disponibilidade e suporte a redeploy automático.
+
+**D06, Node.js versão 18 ou superior**
+O backend requer Node.js 18+ para compatibilidade com as
+bibliotecas utilizadas. Dependência de ambiente de
+desenvolvimento e produção.
+
+**D07, Conta Google com Gmail API habilitada**
+O envio de e-mail real requer uma conta Google com a Gmail API
+ativada no Google Cloud Console e credenciais OAuth2 configuradas.
+Deve ser configurada antes do deploy em produção.
+
+**D08, Chaves de API válidas e com créditos suficientes**
+O sistema depende de chaves de API ativas para Anthropic e
+OpenAI. Créditos esgotados ou chaves inválidas causam falha
+na geração. Mitigação: monitoramento de uso e alertas de
+limite via dashboards das respectivas plataformas.
+
+## 14. Riscos
+
+Riscos identificados durante a fase de análise, com impacto estimado,
+probabilidade e estratégia de mitigação documentada.
+
+---
+
+### R01, Alucinação da IA gerando estimativas irreais
+
+**Impacto:** Alto  
+**Probabilidade:** Média  
+**Descrição:** A Claude API pode gerar escopos com horas, custos ou
+squads inconsistentes com a realidade do mercado, prejudicando a
+credibilidade da proposta perante o supervisor e o cliente.
+
+**Mitigação:**
+- Uso de RAG com projetos reais para fundamentar as respostas
+- Prompt Engineering estruturado com exemplos e restrições de formato
+- Validação de schema antes de persistir a resposta no banco
+- Revisão obrigatória pelo comercial antes do envio ao supervisor
+- Supervisor tem poder de ajustar ou recusar o escopo gerado
+
+---
+
+### R02, Indisponibilidade da Claude API
+
+**Impacto:** Alto  
+**Probabilidade:** Baixa  
+**Descrição:** Falha ou instabilidade na API da Anthropic impede a
+geração de escopos, bloqueando o fluxo principal do sistema.
+
+**Mitigação:**
+- Retry automático de até 2 tentativas em falhas transitórias
+- Timeout máximo de 10 segundos por tentativa
+- Flag `falha_geracao` salva no banco para reprocessamento posterior
+- Mensagem clara ao usuário sem expor detalhes técnicos
+- Briefing preservado para reprocessar quando a API voltar
+
+---
+
+### R03, Vazamento do token de aprovação
+
+**Impacto:** Alto  
+**Probabilidade:** Baixa  
+**Descrição:** O link tokenizado enviado ao supervisor pode ser
+interceptado ou encaminhado indevidamente, expondo dados sensíveis
+do escopo a pessoas não autorizadas.
+
+**Mitigação:**
+- Token armazenado apenas como hash no banco, nunca em texto puro
+- Token de uso único, invalidado após o primeiro acesso válido
+- Expiração de 48 horas independente de uso
+- Dados sensíveis nunca incluídos no corpo do e-mail
+- HTTPS obrigatório em produção
+- Log de acesso registrado com IP e timestamp
+
+---
+
+### R04, Base de conhecimento RAG desatualizada
+
+**Impacto:** Médio  
+**Probabilidade:** Alta  
+**Descrição:** Na v1 a base de conhecimento é atualizada manualmente.
+Com o tempo, os projetos fictícios podem não refletir mais a realidade
+do mercado, degradando a qualidade das estimativas geradas.
+
+**Mitigação:**
+- Documentação clara do processo de atualização da base
+- Supervisor pode ajustar estimativas via fluxo de aprovação
+- V2 prevê interface administrativa para gestão da base
+- Projetos fictícios construídos com faixas realistas de mercado
+
+---
+
+### R05, Falha no envio de e-mail ao supervisor
+
+**Impacto:** Médio  
+**Probabilidade:** Baixa  
+**Descrição:** Falha na Gmail API ou bloqueio do e-mail como spam
+impede o supervisor de receber o link de aprovação, travando o
+fluxo de aprovação.
+
+**Mitigação:**
+- Falha registrada no log com timestamp
+- Alerta visual ao comercial informando que o e-mail não foi enviado
+- Opção de reenvio manual pelo comercial
+- Status do briefing mantido como `em_aprovacao` para não perder o contexto
+- V2 prevê notificação interna no dashboard como canal alternativo
+
+---
+
+### R06, Custo inesperado das APIs externas
+
+**Impacto:** Médio  
+**Probabilidade:** Baixa  
+**Descrição:** Uso intenso das APIs da Anthropic e OpenAI pode gerar
+custos acima do esperado caso o volume de briefings aumente
+significativamente.
+
+**Mitigação:**
+- Rate limiting por usuário nas rotas de geração de IA
+- Monitoramento de uso via logs estruturados
+- OpenAI Embeddings utilizada apenas para indexação, custo fixo e baixo
+- Claude API chamada apenas após validação completa do briefing
+- V2 prevê cache de embeddings para briefings similares
+
+---
+
+### R07, Reprocessamento excessivo pelo comercial
+
+**Impacto:** Baixo  
+**Probabilidade:** Média  
+**Descrição:** Comercial pode reprocessar o mesmo briefing várias vezes
+sem necessidade, gerando múltiplas versões desnecessárias e consumindo
+créditos de API sem valor agregado.
+
+**Mitigação:**
+- Rate limiting de 20 requisições de IA por hora por usuário
+- Histórico de versões visível para desencorajar reprocessamentos
+  desnecessários
+- V2 prevê aviso ao comercial quando há versão recente disponível
+
+---
+
+### R08, Desalinhamento entre escopo gerado e expectativa do cliente
+
+**Impacto:** Alto  
+**Probabilidade:** Média  
+**Descrição:** Mesmo com RAG, a IA pode gerar um escopo que não reflete
+com precisão o que o cliente descreveu na reunião, caso o briefing
+preenchido pelo comercial seja vago ou incompleto.
+
+**Mitigação:**
+- Campos obrigatórios no formulário garantem informações mínimas
+- Instrução no placeholder do campo de descrição orientando
+  o comercial a ser específico
+- Revisão obrigatória pelo comercial antes do envio
+- Supervisor pode solicitar ajuste com comentário detalhado
+- V2 prevê checklist de qualidade do briefing antes do processamento
+
+---
+
+### R09, Expiração do token antes da aprovação do supervisor
+
+**Impacto:** Baixo  
+**Probabilidade:** Média  
+**Descrição:** Supervisor pode demorar mais de 48 horas para acessar
+o link, fazendo o token expirar e impedindo a aprovação sem nova
+notificação.
+
+**Mitigação:**
+- E-mail informa claramente o prazo de 48 horas para acesso
+- Comercial pode reenviar o e-mail manualmente gerando novo token
+- Status do briefing permanece `em_aprovacao` para não perder contexto
+- V2 prevê envio automático de lembrete após 24 horas sem resposta
+
+---
+
+### R10, Acesso indevido ao sistema por credenciais comprometidas
+
+**Impacto:** Alto  
+**Probabilidade:** Baixa  
+**Descrição:** Credenciais de um comercial podem ser comprometidas,
+permitindo acesso não autorizado aos briefings e dados de clientes.
+
+**Mitigação:**
+- Rate limiting de 10 tentativas de login por minuto por IP
+- Senhas armazenadas com hash bcrypt (custo mínimo 10)
+- Tokens JWT com expiração máxima de 8 horas
+- Log de acesso registrado com IP e user agent
+- V2 prevê autenticação em dois fatores (2FA)
+
+
+## 15. Análise de Valor de Negócio
+
+Esta seção conecta o produto ao impacto real no negócio da software
+house que o adota. Os números são estimativas baseadas em referências
+de mercado e nos projetos fictícios da base de conhecimento, não em
+dados reais de nenhuma empresa específica.
+
+---
+
+### 15.1 Problema Quantificado
+
+Para dimensionar o valor do EscopoCerto, é necessário primeiro
+estimar o custo do problema que ele resolve.
+
+**Cenário base de uma software house de médio porte:**
+
+| Indicador | Estimativa |
+|---|---|
+| Propostas geradas por mês | 20 |
+| Tempo médio para gerar uma proposta hoje | 3 dias |
+| Taxa de retrabalho por gap de escopo | 35% dos projetos |
+| Custo médio de retrabalho por projeto | R$ 15.000 |
+| Projetos com retrabalho por mês | 2 a 3 |
+| Custo mensal estimado de retrabalho | R$ 30.000 a R$ 45.000 |
+| Propostas perdidas por lentidão no processo | 3 a 5 por mês |
+| Ticket médio por proposta perdida | R$ 40.000 |
+| Receita não capturada por mês | R$ 120.000 a R$ 200.000 |
+
+**Custo total estimado do problema por mês:**
+Entre R$ 150.000 e R$ 245.000 em retrabalho e oportunidades perdidas.
+
+---
+
+### 15.2 Valor Gerado pelo EscopoCerto
+
+**Redução do tempo de geração de proposta:**
+
+| Situação | Tempo |
+|---|---|
+| Processo atual (AS-IS) | 2 a 5 dias |
+| Com EscopoCerto (TO-BE) | 15 a 30 minutos |
+| Redução estimada | 95% |
+
+Com propostas geradas em minutos, o comercial pode responder ao
+cliente ainda no dia da reunião. A velocidade de resposta é um
+fator decisivo em mercados competitivos.
+
+**Redução de retrabalho por gap de escopo:**
+
+O registro estruturado do briefing e a geração padronizada de escopo
+reduzem interpretações divergentes entre comercial e técnico. A
+estimativa conservadora é de redução de 40% nos casos de retrabalho
+por gap de escopo, representando economia de R$ 12.000 a R$ 18.000
+por mês no cenário base.
+
+**Aumento na taxa de conversão de propostas:**
+
+Propostas mais rápidas, mais estruturadas e com estimativas
+fundamentadas em dados reais tendem a converter melhor. Uma melhora
+de 10% na taxa de conversão no cenário base representa R$ 80.000 a
+R$ 120.000 de receita adicional por mês.
+
+**Rastreabilidade e redução de conflitos:**
+
+O histórico auditável de decisões protege a software house em casos
+de questionamento pelo cliente sobre o que foi acordado. Isso reduz
+disputas contratuais e desgaste no relacionamento.
+
+---
+
+### 15.3 Resumo do Impacto Estimado
+
+| Benefício | Impacto mensal estimado |
+|---|---|
+| Redução de retrabalho por gap | R$ 12.000 a R$ 18.000 |
+| Receita adicional por conversão | R$ 80.000 a R$ 120.000 |
+| Economia de tempo da equipe técnica | 40h a 80h por mês |
+| Redução de conflitos contratuais | Não quantificável diretamente |
+
+**Retorno sobre o investimento (ROI):**
+Considerando o custo de desenvolvimento do EscopoCerto como
+investimento único e os benefícios mensais estimados, o sistema
+se paga em menos de 30 dias de operação no cenário base.
+
+---
+
+### 15.4 Métricas de Acompanhamento
+
+Após o lançamento, o sucesso do EscopoCerto deve ser medido pelos
+seguintes indicadores:
+
+| Métrica | Meta v1 | Como medir |
+|---|---|---|
+| Tempo médio de geração de escopo | Menos de 30 min | Log de timestamps |
+| Taxa de aprovação na primeira versão | Acima de 60% | Banco de dados |
+| Taxa de reprocessamento por briefing | Menos de 2x | Contagem de versões |
+| Briefings gerados por semana | Crescimento constante | Dashboard |
+| Taxa de falha na geração de IA | Menos de 5% | Flag falha_geracao |
+| Tempo médio de resposta do supervisor | Menos de 24h | Log de aprovações |
+
+---
+
+### 15.5 Posicionamento Competitivo
+
+O EscopoCerto não compete com ferramentas genéricas de proposta
+como Google Docs ou Word. Ele compete com a ausência de processo,
+que é o cenário atual da maioria das software houses brasileiras
+de pequeno e médio porte.
+
+O diferencial não é apenas a IA, é a combinação de:
+- Registro estruturado de briefing em linguagem natural
+- Estimativas fundamentadas em histórico real via RAG
+- Fluxo de aprovação seguro e rastreável
+- Histórico auditável de todas as decisões
+
+Esse conjunto transforma um processo informal e dependente de
+pessoas em um processo sistematizado, escalável e auditável.
+
+## 16. Plano de Testes
+
+### 16.1 Objetivos
+
+Garantir que todas as funcionalidades do EscopoCerto funcionam
+conforme especificado nos requisitos e casos de uso, com foco
+especial nos fluxos críticos de segurança, geração de IA e
+aprovação via token.
+
+---
+
+### 16.2 Escopo dos Testes
+
+**Incluído:**
+- Fluxo completo de criação de briefing até aprovação
+- Validação de segurança dos tokens UUID
+- Tratamento de falhas na IA (fallback e retry)
+- Validação de inputs e sanitização
+- Autenticação e controle de acesso
+- Versionamento de escopo
+- Envio de e-mail e geração de link tokenizado
+
+**Excluído:**
+- Testes de performance em alta escala (acima de 50 usuários)
+- Testes de penetração formal (previsto para v2)
+- Testes automatizados end-to-end (previsto para v2)
+
+---
+
+### 16.3 Casos de Teste por Módulo
+
+---
+
+#### Módulo de Autenticação
+
+| ID | Cenário | Entrada | Resultado esperado |
+|---|---|---|---|
+| T01 | Login com credenciais válidas | E-mail e senha corretos | Redireciona ao dashboard com JWT gerado |
+| T02 | Login com senha incorreta | Senha errada | Mensagem de erro genérica, sem indicar qual campo |
+| T03 | Login com e-mail inexistente | E-mail não cadastrado | Mensagem de erro genérica |
+| T04 | Rate limit de login | 11 tentativas em 1 minuto | Bloqueio com mensagem de rate limit |
+| T05 | Acesso a rota protegida sem JWT | Sem token no header | Retorno 401 Unauthorized |
+| T06 | Acesso com JWT expirado | Token com mais de 8h | Retorno 401, redirecionamento ao login |
+| T07 | Logout | Clique em sair | Token invalidado, redirecionado ao login |
+
+---
+
+#### Módulo de Briefing
+
+| ID | Cenário | Entrada | Resultado esperado |
+|---|---|---|---|
+| T08 | Criar briefing com todos os campos | Formulário completo | Briefing salvo, processamento iniciado |
+| T09 | Criar briefing sem campo obrigatório | Nome do cliente vazio | Mensagem de validação no campo |
+| T10 | Criar briefing com script no campo | `<script>alert(1)</script>` | Input sanitizado, sem execução de código |
+| T11 | Criar briefing com SQL no campo | `'; DROP TABLE briefings;` | Input tratado como texto simples |
+| T12 | Visualizar briefing existente | Clique no briefing | Detalhe exibido com escopo e status |
+| T13 | Filtrar briefings por status | Seleção de filtro | Lista atualizada com briefings do status |
+
+---
+
+#### Módulo de Processamento IA
+
+| ID | Cenário | Entrada | Resultado esperado |
+|---|---|---|---|
+| T14 | Geração de escopo com sucesso | Briefing válido | Escopo v1 gerado e exibido em menos de 10s |
+| T15 | Timeout na Claude API | API não responde em 10s | Retry automático iniciado |
+| T16 | Falha após 2 retries | API indisponível | Flag falha_geracao salva, mensagem ao usuário |
+| T17 | Reprocessar briefing com falha | Clique em reprocessar | Nova tentativa iniciada, versão anterior preservada |
+| T18 | Reprocessar briefing com sucesso | Briefing já com v1 | Escopo v2 gerado, histórico preservado |
+| T19 | Schema inválido na resposta da IA | Resposta malformada | Tratado como falha, fallback acionado |
+| T20 | Rate limit de IA por usuário | 21 requisições em 1h | Bloqueio com mensagem clara |
+
+---
+
+#### Módulo de Aprovação
+
+| ID | Cenário | Entrada | Resultado esperado |
+|---|---|---|---|
+| T21 | Enviar briefing para aprovação | Clique em enviar | E-mail disparado, status atualizado |
+| T22 | Acessar link válido | Token dentro de 48h, não usado | Tela de aprovação exibida com escopo |
+| T23 | Acessar link expirado | Token com mais de 48h | Página de erro sem dados do escopo |
+| T24 | Acessar link já utilizado | Token já usado | Página de erro sem dados do escopo |
+| T25 | Acessar link com token inválido | Token inexistente no banco | Página de erro genérica |
+| T26 | Aprovar escopo | Clique em aprovar | Status aprovado, token invalidado, log registrado |
+| T27 | Solicitar ajuste sem comentário | Clique em ajuste sem preencher | Campo de comentário marcado como obrigatório |
+| T28 | Solicitar ajuste com comentário | Comentário preenchido | Status ajuste_solicitado, comentário salvo |
+| T29 | Recusar sem comentário | Clique em recusar sem preencher | Campo de comentário marcado como obrigatório |
+| T30 | Recusar com comentário | Comentário preenchido | Status recusado, comentário salvo |
+| T31 | Tentar reusar token após decisão | Clique no link após aprovar | Página de erro, token já invalidado |
+
+---
+
+#### Módulo de Segurança
+
+| ID | Cenário | Entrada | Resultado esperado |
+|---|---|---|---|
+| T32 | Acessar rota de outro usuário | URL com briefing_id de outro usuário | Retorno 403 Forbidden |
+| T33 | Token UUID sem hash no banco | Manipulação do token na URL | Não encontrado, página de erro |
+| T34 | Requisição sem HTTPS | HTTP em produção | Redirecionamento forçado para HTTPS |
+| T35 | Headers de segurança | Inspeção de headers | Helmet.js configurado corretamente |
+| T36 | Chave de API em resposta de erro | Erro proposital na IA | Chave não exposta na resposta |
+| T37 | Log de auditoria após decisão | Aprovação registrada | Log com ator, decisão, versão e timestamp |
+
+---
+
+#### Módulo de E-mail
+
+| ID | Cenário | Entrada | Resultado esperado |
+|---|---|---|---|
+| T38 | E-mail enviado com sucesso | Envio para aprovação | E-mail recebido com link e prazo de 48h |
+| T39 | E-mail sem dados sensíveis | Verificar corpo do e-mail | Sem valores, horas ou escopo no corpo |
+| T40 | Falha no envio de e-mail | Gmail API indisponível | Alerta ao comercial, log de falha registrado |
+| T41 | Reenvio manual após falha | Clique em reenviar | Novo token gerado, novo e-mail enviado |
+
+---
+
+### 16.4 Critérios de Aceite Globais
+
+O sistema está pronto para deploy em produção quando:
+
+- Todos os casos de teste críticos (T01 a T07, T21 a T31, T32 a T36)
+  passarem sem falha
+- Nenhum dado sensível exposto em logs, respostas de erro ou e-mails
+- Tempo de geração de escopo abaixo de 10 segundos em condições normais
+- Fluxo completo de briefing até aprovação executado sem erros em
+  3 execuções consecutivas
+- Fallback da IA funcionando corretamente em caso de falha simulada
+- Tokens UUID expirados e usados rejeitados corretamente em 100% dos casos
+
+---
+
+### 16.5 Ambiente de Testes
+
+| Ambiente | Finalidade |
+|---|---|
+| Local (localhost) | Desenvolvimento e testes unitários |
+| Railway (staging) | Testes de integração com APIs reais |
+| Railway (produção) | Deploy final após aprovação em staging |
+
+**Dados de teste:**
+- Usuários fictícios cadastrados localmente
+- Briefings baseados nos projetos da base de conhecimento RAG
+- E-mail de teste criado exclusivamente para o projeto
+- APIs externas utilizadas em modo real no staging
+
+## 17. Roadmap
+
+### 17.1 V1, O que está sendo entregue agora
+
+**Foco:** Fluxo central funcionando do briefing à aprovação, com IA,
+segurança e rastreabilidade.
+
+| Funcionalidade | Status |
+|---|---|
+| Autenticação JWT para comercial | V1 |
+| Criação de briefing em linguagem natural | V1 |
+| Processamento via RAG + Claude API | V1 |
+| Versionamento de escopo (v1, v2, v3...) | V1 |
+| Fallback e retry na IA | V1 |
+| Envio de e-mail com token UUID seguro | V1 |
+| Tela de aprovação para supervisor | V1 |
+| Log de auditoria por decisão | V1 |
+| Dashboard com histórico de briefings | V1 |
+| Landing page institucional | V1 |
+| Deploy em produção via Railway | V1 |
+
+---
+
+### 17.2 V2, Melhorias planejadas
+
+**Foco:** Experiência mais completa para supervisor e comercial,
+integrações e qualidade operacional.
+
+| Funcionalidade | Justificativa |
+|---|---|
+| Login próprio para supervisor | Histórico centralizado de aprovações |
+| Notificação interna no dashboard | Canal alternativo ao e-mail |
+| Lembrete automático após 24h sem resposta | Reduz tokens expirados por esquecimento |
+| Comparação visual entre versões de escopo | Facilita decisão em reprocessamentos |
+| Interface administrativa para base RAG | Elimina atualização manual do JSON |
+| Integração via webhook com CRM | RD Station, HubSpot |
+| Checklist de qualidade do briefing | Reduz briefings vagos antes do processamento |
+| Dashboard de métricas de conversão | Visibilidade do funil comercial |
+| Autenticação em dois fatores (2FA) | Elevação do nível de segurança |
+| Testes automatizados end-to-end | Qualidade e confiabilidade em escala |
+
+---
+
+### 17.3 V3, Visão de longo prazo
+
+**Foco:** Produto completo, escalável e integrado ao ecossistema
+de ferramentas da software house.
+
+| Funcionalidade | Visão |
+|---|---|
+| Multi-tenant | Múltiplas empresas na mesma plataforma |
+| Geração automática de proposta em PDF | Do escopo aprovado à proposta formal |
+| Integração com Jira e Trello | Criação automática de backlog após aprovação |
+| Parsing de e-mail de resposta | Fluxo bidirecional via e-mail |
+| Templates de escopo por segmento | Modelos pré-configurados por área |
+| API pública | Integração com sistemas externos |
+| Fine-tuning do modelo com dados próprios | IA treinada no histórico real da empresa |
+| Mobile app | Acesso ao sistema via smartphone |
+
+---
+
+## 18. Decisões e Trade-offs
+
+Esta seção documenta as principais decisões técnicas e de produto
+tomadas durante a concepção do EscopoCerto, com o contexto,
+as alternativas consideradas e a justificativa da escolha.
+Decisões bem documentadas demonstram maturidade de produto e
+facilitam revisões futuras.
+
+---
+
+### D01, Usar Claude API + OpenAI Embeddings em vez de uma API só
+
+**Contexto:**
+O RAG exige duas operações com características distintas: transformar
+textos em vetores numéricos (embeddings) e gerar respostas em linguagem
+natural (geração). Ambas podem ser feitas por um único provedor, mas
+não com a mesma eficiência.
+
+**Analogia para entender:**
+Pensa numa biblioteca com 500 livros. Para encontrar os livros mais
+parecidos com o que você procura, alguém precisou ler todos e criar
+um índice. A OpenAI Embeddings faz isso com os projetos da base,
+transforma cada um em números que representam o seu significado.
+O Claude é o pesquisador que, com esse índice em mãos e o briefing
+do comercial, analisa tudo e escreve o escopo. São tarefas diferentes
+que pedem perfis diferentes.
+
+**Opções consideradas:**
+- Claude API para tudo (embeddings + geração)
+- OpenAI para tudo (embeddings + GPT para geração)
+- OpenAI Embeddings + Claude API
+
+**Decisão:** OpenAI Embeddings + Claude API
+
+**Justificativa:**
+A OpenAI Embeddings é o endpoint mais consolidado, barato e documentado
+do mercado para indexação vetorial. Custo inferior a R$ 0,10 para
+indexar a base inteira. O Claude é superior para geração de texto
+estruturado, raciocínio e análise de viabilidade. Usar o melhor de
+cada um para sua função específica é prática comum em sistemas RAG
+de produção. A complexidade adicional de gerenciar duas APIs é
+justificada pela qualidade e custo do resultado.
+
+---
+
+### D02, Aprovação interna no sistema em vez de parsing de e-mail
+
+**Contexto:**
+O supervisor precisa registrar sua decisão sobre o escopo. A decisão
+pode ser capturada de duas formas: lendo e interpretando a resposta
+do supervisor ao e-mail, ou exibindo uma tela de aprovação acessível
+via link no e-mail.
+
+**Opções consideradas:**
+- Parsing de e-mail bidirecional (supervisor responde o e-mail e o
+  sistema interpreta a resposta)
+- Tela de aprovação interna acessível via link tokenizado no e-mail
+
+**Decisão:** Tela de aprovação interna via link tokenizado
+
+**Justificativa:**
+O parsing de e-mail exige configurar um servidor para escutar e-mails
+recebidos (webhook de e-mail via SendGrid Inbound Parse ou Mailgun),
+adiciona complexidade de infraestrutura significativa e é mais frágil,
+dependendo do formato exato da resposta do supervisor. A tela interna
+entrega a mesma experiência prática com muito menos risco técnico,
+garante que a decisão seja registrada no formato correto e permite
+controle total sobre validação, auditoria e expiração. O e-mail
+notifica, a decisão fica no sistema.
+
+---
+
+### D03, Token UUID com hash em vez de login do supervisor
+
+**Contexto:**
+O supervisor precisa acessar o escopo para aprovar. Isso pode ser
+feito exigindo que ele tenha login próprio no sistema, ou via link
+seguro enviado por e-mail sem necessidade de cadastro.
+
+**Opções consideradas:**
+- Login próprio do supervisor com cadastro no sistema
+- Token UUID com hash, expiração e uso único via link no e-mail
+
+**Decisão:** Token UUID com hash, expiração e uso único
+
+**Justificativa:**
+Na v1 o supervisor é um ator externo ao fluxo principal do sistema.
+Exigir cadastro cria fricção desnecessária e aumenta a superfície de
+ataque. O token UUID com hash resolve o acesso de forma segura,
+rastreável e sem dependência de sessão. A segurança é garantida
+pela combinação de hash (valor nunca exposto), expiração em 48 horas
+e invalidação após o primeiro uso. É o mesmo padrão usado em links
+de redefinição de senha em sistemas enterprise.
+
+---
+
+### D04, PostgreSQL via Supabase em vez de MySQL
+
+**Contexto:**
+O sistema precisa de banco relacional para dados da aplicação e
+banco vetorial para o RAG. MySQL é uma stack amplamente utilizada no mercado. PostgreSQL com pgvector resolve os dois casos.
+
+**Opções consideradas:**
+- MySQL para dados relacionais + serviço separado para vetores
+  (Pinecone, Weaviate)
+- PostgreSQL via Supabase com pgvector
+
+**Decisão:** PostgreSQL via Supabase com pgvector
+
+**Justificativa:**
+Supabase entrega PostgreSQL mais pgvector na mesma plataforma,
+no plano gratuito, sem necessidade de gerenciar dois serviços
+separados. PostgreSQL é mais robusto que MySQL para cargas de
+trabalho complexas e tem suporte nativo a JSONB, útil para os
+campos `squad_sugerido` e `horas_estimadas`. A consistência de
+dados entre banco relacional e banco vetorial é garantida por
+estarem na mesma plataforma. Menor complexidade operacional,
+menor custo, maior confiabilidade.
+
+---
+
+### D05, Dados fictícios na base RAG em vez de dados reais
+
+**Contexto:**
+A base de conhecimento RAG precisa de projetos históricos para
+fundamentar as estimativas. O EscopoCerto é um projeto de portfólio,
+sem acesso a dados reais de nenhuma software house.
+
+**Opções consideradas:**
+- Dados reais de projetos (inviável por confidencialidade)
+- Dados fictícios genéricos e simplificados
+- Dados fictícios realistas e detalhados
+
+**Decisão:** Dados fictícios realistas e detalhados
+
+**Justificativa:**
+Dados fictícios realistas com segmentos, squads, horas e custos
+dentro de faixas reais de mercado demonstram que a arquitetura
+funciona corretamente em cenário representativo. Dados genéricos
+ou simplificados degradariam a qualidade das estimativas e não
+demonstrariam o valor real do RAG. Em uso real pela empresa, os
+dados seriam substituídos por projetos reais do histórico da
+software house. A base fictícia serve como template e prova de
+conceito.
+
+---
+
+### D06, Layered Architecture em vez de Clean Architecture
+
+**Contexto:**
+O sistema precisa de uma arquitetura que separe responsabilidades,
+seja testável e seja compreensível por qualquer desenvolvedor que
+leia o código.
+
+**Opções consideradas:**
+- MVC simples (Model, View, Controller)
+- Layered Architecture de 4 camadas
+- Clean Architecture / Hexagonal
+
+**Decisão:** Layered Architecture de 4 camadas
+
+**Justificativa:**
+MVC simples não oferece separação suficiente para um sistema com
+múltiplos serviços externos (IA, e-mail, RAG). Clean Architecture
+é mais poderosa mas introduz abstrações e indireções que aumentam
+a complexidade desnecessariamente para um projeto solo de portfólio.
+Layered Architecture equilibra separação de responsabilidades,
+testabilidade e legibilidade. Controllers não acessam banco
+diretamente, services são independentes de framework, models
+não contêm lógica de negócio. É o padrão mais usado em software
+houses brasileiras de médio porte, facilitando leitura por
+qualquer dev que entre no projeto.
+
+---
+
+### D07, Vibe coding com Claude Code + Cursor em vez de desenvolvimento manual
+
+**Contexto:**
+O EscopoCerto é desenvolvido por um único desenvolvedor com perfil
+de Business Analyst e Product Owner, com experiência em desenvolvimento
+assistido por IA.
+
+**Opções consideradas:**
+- Desenvolvimento manual linha a linha
+- Desenvolvimento assistido por IA (Claude Code + Cursor)
+
+**Decisão:** Desenvolvimento assistido por IA (Claude Code + Cursor)
+
+**Justificativa:**
+O uso de ferramentas de IA no desenvolvimento é uma prática consolidada
+e crescente no mercado. O Claude Code com o CLAUDE.md do projeto como
+contexto garante que toda geração de código segue as decisões de
+arquitetura, stack e padrões definidos neste PRD. O responsável pelo produto mantém
+entendimento completo de cada módulo e consegue explicar e defender todas as decisões 
+técnicas e de produto em qualquer contexto profissional. A IA acelera a produção
+sem substituir o raciocínio técnico, que foi aplicado integralmente
+na fase de análise e documentação. Essa abordagem é honesta,
+moderna e alinhada com como os melhores times de tecnologia
+trabalham hoje.
+
+---
+
+## 19. Premissas e Dependências (complemento)
+
+> Esta seção complementa a seção 13, adicionando dependências
+> técnicas identificadas após a conclusão da modelagem.
+
+**D01, Conta Anthropic com créditos disponíveis**
+O sistema depende de créditos na conta Anthropic para chamar a
+Claude API. Sem créditos, a geração de escopo falha e o fallback
+é acionado.
+
+**D02, Conta OpenAI com créditos disponíveis**
+O sistema depende de créditos na conta OpenAI para gerar embeddings
+durante o setup inicial e para novas indexações. Custo estimado
+inferior a R$ 0,10 para a base completa.
+
+**D03, Projeto ativo no Google Cloud Console**
+O envio de e-mail via Gmail API depende de um projeto ativo no
+Google Cloud Console com a Gmail API habilitada e credenciais
+OAuth2 configuradas.
+
+**D04, Instância ativa no Railway**
+O deploy depende de uma instância ativa no Railway com variáveis
+de ambiente configuradas. A instância gratuita pode sofrer
+cold start em períodos de inatividade.
+
+**D05, Supabase com pgvector habilitado**
+O banco vetorial depende da extensão pgvector habilitada no
+projeto Supabase. Deve ser ativada manualmente via SQL Editor
+antes do setup inicial.
+
+```sql
+create extension if not exists vector;
 ```
