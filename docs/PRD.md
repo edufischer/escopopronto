@@ -110,3 +110,53 @@ O sucesso do EscopoCerto é medido pela distância entre o que Roberto descreveu
 - A qualidade do briefing que o Carlos registra
 - O nível de detalhe que a IA consegue processar
 - A satisfação final com o projeto entregue
+
+## 3. Escopo do Produto
+
+### 3.1 O que está dentro do escopo (v1)
+
+- Autenticação de usuários com perfis distintos (comercial)
+- Criação e envio de briefings em linguagem natural
+- Processamento do briefing via RAG com base de conhecimento fictícia
+- Geração automática de escopo, squad sugerido, horas estimadas, custo e viabilidade
+- Revisão do escopo gerado pelo comercial antes do envio
+- Versionamento de escopo por geração (v1, v2, v3...)
+- Envio de e-mail automático ao supervisor via Gmail API
+- Link de aprovação seguro com token UUID (hash + expiração 48h + uso único)
+- Tela de aprovação para o supervisor, sem necessidade de login
+- Registro de decisão com comentário (aprovar, ajustar, recusar)
+- Log de auditoria por briefing (quem, quando, o quê)
+- Atualização de status do briefing em tempo real
+- Histórico completo de briefings para o comercial
+- Dashboard com resumo de briefings por status
+- Tratamento de falha na IA com fallback, retry automático e flag no banco
+- Landing page institucional do produto
+
+### 3.2 O que está fora do escopo (v1)
+
+| Item | Justificativa |
+|---|---|
+| Login próprio para o supervisor | Aumenta complexidade sem ganho real na v1. Token UUID resolve com segurança |
+| Integração com CRM externo | Fora do escopo de portfólio, pode entrar na v2 |
+| Geração automática de contrato | Etapa posterior à aprovação, não faz parte do fluxo central |
+| Pagamento ou faturamento | Fora do contexto do produto |
+| App mobile | Web responsivo atende a demanda da v1 |
+| Múltiplos idiomas | Produto focado no mercado brasileiro na v1 |
+| Parsing de e-mail de resposta do supervisor | Complexidade de infraestrutura alta, aprovação interna resolve 
+| Fine-tuning ou treinamento de modelo próprio | RAG com base de conhecimento resolve o problema sem custo e complexidade de treinar modelo |
+
+### 3.3 Evoluções futuras
+
+**v2, curto prazo:**
+- Login próprio para o supervisor com histórico de aprovações
+- Integração com CRM via webhook (RD Station, HubSpot)
+- Comparação visual entre versões de escopo
+- Notificação interna no dashboard quando supervisor decidir
+- Dashboard administrativo com métricas de conversão
+
+**v3, médio prazo:**
+- Parsing de e-mail de resposta do supervisor (fluxo bidirecional)
+- Integração com ferramentas de gestão de projetos (Jira, Trello)
+- Geração automática de proposta comercial em PDF
+- Módulo de templates de escopo por segmento de cliente
+- API pública para integração com sistemas externos
