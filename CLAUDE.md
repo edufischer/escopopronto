@@ -43,8 +43,10 @@ Services não conhecem o Express, são independentes de framework.
 - React + Vite
 - Tailwind CSS
 - Shadcn/ui (componentes)
+- Framer Motion (animações e transições)
 - React Router (navegação)
 - Axios (chamadas à API)
+- Lucide React (ícones)
 
 ### Backend
 - Node.js + Express
@@ -85,6 +87,10 @@ Services não conhecem o Express, são independentes de framework.
 - SEM cards inflados
 - SEM visual genérico de IA
 - Espaçamento amplo, hierarquia clara, sensação de SaaS profissional
+- Animações de entrada com Framer Motion (suaves, sem exagero)
+- Gradiente Aurora sutil em verde (#22C55E com baixa opacidade) no hero da landing page
+- Transições de página fluidas
+- Referências visuais: Resend.com, Linear.app, Vercel.com
 
 ---
 
