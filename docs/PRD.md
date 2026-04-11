@@ -251,3 +251,60 @@ O sucesso do EscopoCerto é medido pela distância entre o que Roberto descreveu
 - O sistema deve atualizar o status do briefing em tempo real após cada etapa
 - O comercial deve conseguir visualizar o histórico completo de um briefing, incluindo todas as versões de escopo e decisões registradas
 - O sistema deve exibir o comentário do supervisor quando houver ajuste solicitado ou recusa
+
+## 5. Requisitos Não-Funcionais
+
+### 5.1 Performance
+
+- O sistema deve responder a requisições comuns (login, dashboard, histórico) em menos de 1 segundo
+- A geração de escopo pela IA deve ter timeout máximo de 10 segundos
+- A busca vetorial no pgvector deve retornar resultados em menos de 2 segundos
+- O envio de e-mail deve ser processado de forma assíncrona, sem bloquear a resposta ao usuário
+- O sistema deve suportar uso simultâneo de até 10 usuários sem degradação perceptível de performance
+
+### 5.2 Segurança
+
+- Todas as senhas devem ser armazenadas com hash bcrypt (custo mínimo 10)
+- Tokens JWT devem ter expiração máxima de 8 horas
+- Tokens UUID de aprovação devem ser armazenados como hash no banco, nunca em texto puro
+- Tokens UUID devem expirar em 48 horas e ser invalidados após o primeiro uso válido
+- O sistema deve implementar proteção contra replay de tokens
+- Todas as rotas autenticadas devem validar o JWT a cada requisição
+- O sistema deve usar HTTPS em produção, sem exceções
+- Headers HTTP de segurança devem ser configurados via Helmet.js
+- Rate limiting deve ser aplicado nas rotas de autenticação (máximo 10 tentativas por minuto por IP) e nas rotas de geração de IA (máximo 20 requisições por hora por usuário)
+- CORS deve ser configurado por ambiente, restrito à origem do frontend em produção
+- Inputs devem ser sanitizados contra XSS e SQL Injection em todos os endpoints
+- Chaves de API nunca devem aparecer em logs, respostas de erro ou código versionado
+- Dados sensíveis (valores, squad, escopo) nunca devem aparecer no corpo do e-mail enviado ao supervisor
+
+### 5.3 Usabilidade
+
+- A interface deve ser responsiva e funcionar em desktop e mobile
+- O fluxo de criação de briefing até envio para aprovação deve ser concluído em no máximo 5 cliques
+- Mensagens de erro devem ser claras e orientadas ao usuário, sem expor detalhes técnicos
+- O status de cada briefing deve ser visível de forma imediata no dashboard
+- A tela de aprovação do supervisor deve ser autoexplicativa, sem necessidade de cadastro ou tutorial
+- O sistema deve exibir feedback visual durante o processamento da IA (loading state com mensagem)
+
+### 5.4 Escalabilidade
+
+- A arquitetura em camadas deve permitir escalar cada camada de forma independente
+- A base de conhecimento RAG deve suportar adição de novos projetos sem necessidade de alteração no código
+- O sistema de versionamento de escopo deve suportar número ilimitado de versões por briefing
+- O banco de dados deve ser estruturado para suportar múltiplas empresas no futuro (estrutura multi-tenant preparada, não implementada na v1)
+
+### 5.5 Disponibilidade
+
+- O sistema deve ter disponibilidade mínima de 99% em produção
+- O deploy deve ser realizado sem downtime perceptível ao usuário
+- Falhas na API da IA não devem derrubar o sistema, apenas o módulo de geração
+- O sistema deve manter funcionamento completo mesmo quando o serviço de e-mail estiver indisponível, registrando a falha no log e permitindo reenvio manual
+
+### 5.6 Manutenibilidade
+
+- O código deve seguir o padrão de Layered Architecture com responsabilidades bem definidas por camada
+- Funções complexas devem ser comentadas em português
+- Variáveis de ambiente devem ser documentadas no arquivo `.env.example`
+- Logs devem ser estruturados por nível (info, warning, error) e separados por ambiente
+- O projeto deve ter um `README.md` claro com instruções de instalação, configuração e execução local
