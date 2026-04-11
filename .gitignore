@@ -1,0 +1,3 @@
+.DS_Store // nao subir lixo do meu PC
+.env
+node_modules/
