@@ -5,10 +5,7 @@ import axios from 'axios';
  * BaseURL obtida das variáveis de ambiente do Vite.
  */
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || 'http://localhost:3000/api',
-  headers: {
-    'Content-Type': 'application/json',
-  },
+  baseURL: import.meta.env.VITE_API_URL
 });
 
 /**
@@ -18,11 +15,11 @@ const api = axios.create({
 api.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem('@EscopoCerto:token');
-    
+
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
     }
-    
+
     return config;
   },
   (error) => {
@@ -40,13 +37,13 @@ api.interceptors.response.use(
     if (error.response && error.response.status === 401) {
       localStorage.removeItem('@EscopoCerto:token');
       localStorage.removeItem('@EscopoCerto:usuario');
-      
+
       // Só redireciona se não estiver já na página de login para evitar loop
       if (!window.location.pathname.includes('/login')) {
         window.location.href = '/login';
       }
     }
-    
+
     return Promise.reject(error);
   }
 );
