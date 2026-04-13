@@ -2698,6 +2698,19 @@ trabalham hoje.
 
 ---
 
+D08, Vercel para frontend em vez de Railway
+
+Contexto: PRD original previa Railway para todo o sistema.
+
+Decisão: Vercel para frontend, Railway para backend.
+
+Justificativa: Vercel é especializado em frontend estático e 
+frameworks como React/Vite, com deploy automático a cada push, 
+CDN global e configuração zero. Railway é superior para backend 
+Node.js com banco de dados. Separar as responsabilidades é uma 
+decisão de arquitetura comum no mercado e melhora a performance 
+do frontend significativamente.
+
 ## 19. Premissas e Dependências (complemento)
 
 > Esta seção complementa a seção 13, adicionando dependências
