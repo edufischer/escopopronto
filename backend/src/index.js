@@ -80,3 +80,6 @@ app.use((err, req, res, next) => {
 app.listen(PORT, () => {
   console.log(`Servidor rodando na porta ${PORT} em modo ${process.env.NODE_ENV || 'development'}`);
 });
+
+// Necessário para o Railway e outros proxies reversos
+app.set('trust proxy', 1);
