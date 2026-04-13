@@ -283,7 +283,6 @@ const Landing = () => {
           <p className="text-secondary/50 text-sm">
             © 2026 Escopo Pronto
             Projeto acadêmico desenvolvido para fins de portfólio profissional.
-            Sem vínculo com o domínio escopopronto.com.br.
           </p>
         </div>
       </footer>
