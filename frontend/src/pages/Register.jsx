@@ -5,7 +5,7 @@ import api from '../services/api';
 import { UserPlus, Mail, Lock, User, AlertCircle } from 'lucide-react';
 
 /**
- * Página de Registro do EscopoCerto.
+ * Página de Registro do Escopo Pronto.
  * Permite a criação de novos usuários comerciais no sistema.
  */
 const Register = () => {
@@ -58,7 +58,7 @@ const Register = () => {
           <div className="flex flex-col items-center mb-8">
             <div className="text-3xl font-bold flex items-center gap-2 mb-2">
               <span className="text-primary">✅</span>
-              <span className="text-white">EscopoCerto</span>
+              <span className="text-white">Escopo Pronto</span>
             </div>
             <p className="text-secondary text-sm">Criar nova conta</p>
           </div>

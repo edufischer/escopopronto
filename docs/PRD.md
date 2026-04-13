@@ -1,4 +1,4 @@
-# PRD (Product Requirements Document) , EscopoCerto ✅
+# PRD (Product Requirements Document) , Escopo Pronto ✅
 
 > "O que o cliente espera é o que será entregue."
 
@@ -21,7 +21,7 @@ Além disso, a geração de propostas técnicas é lenta. O comercial sai da reu
 
 ### 1.2 Solução Proposta
 
-O EscopoCerto é uma plataforma web que permite ao comercial registrar o briefing do cliente em linguagem natural, diretamente durante ou após a reunião. A partir desse briefing, a IA, alimentada por uma base de conhecimento real de projetos anteriores via RAG, gera automaticamente um escopo preliminar com estimativa de squad, horas e custo.
+O Escopo Pronto é uma plataforma web que permite ao comercial registrar o briefing do cliente em linguagem natural, diretamente durante ou após a reunião. A partir desse briefing, a IA, alimentada por uma base de conhecimento real de projetos anteriores via RAG, gera automaticamente um escopo preliminar com estimativa de squad, horas e custo.
 
 O escopo gerado é revisado pelo comercial e enviado ao supervisor técnico para aprovação via link seguro e tokenizado. Todo o processo é registrado, versionado e auditável.
 
@@ -35,7 +35,7 @@ com nenhuma empresa ou domínio de mesmo nome.
 
 > "O que o cliente espera é o que será entregue."
 
-O EscopoCerto não é uma ferramenta de geração de propostas genéricas. É um sistema de alinhamento entre comercial e técnico, onde a IA atua como ponte entre a linguagem do cliente e a linguagem do time de desenvolvimento.
+O Escopo Pronto não é uma ferramenta de geração de propostas genéricas. É um sistema de alinhamento entre comercial e técnico, onde a IA atua como ponte entre a linguagem do cliente e a linguagem do time de desenvolvimento.
 
 ### 1.4 Público-Alvo
 
@@ -71,7 +71,7 @@ Carlos é o ponto de contato entre a software house e os clientes. Ele conduz re
 **O que ele precisa:**  
 Registrar o briefing rapidamente, receber uma estimativa preliminar na hora e ter algo concreto para apresentar ao supervisor sem depender de uma reunião técnica imediata.
 
-**Como usa o EscopoCerto:**  
+**Como usa o Escopo Pronto:**  
 Durante ou logo após a reunião com o cliente, abre o sistema, preenche o briefing em linguagem natural e aguarda o escopo gerado pela IA. Revisa, ajusta se necessário, e envia para aprovação do supervisor com um clique.
 
 ---
@@ -93,7 +93,7 @@ Marcela é responsável por validar a viabilidade técnica das propostas antes d
 **O que ela precisa:**  
 Receber um resumo estruturado e completo do briefing, com escopo e estimativa já gerados, para avaliar, ajustar se necessário e aprovar ou recusar de forma rápida e rastreável.
 
-**Como usa o EscopoCerto:**  
+**Como usa o Escopo Pronto:**  
 Recebe um e-mail com link seguro, acessa a tela de aprovação, visualiza o escopo gerado pela IA, adiciona comentário se precisar ajustar, e registra sua decisão. Tudo sem precisar entrar no sistema com login próprio.
 
 ---
@@ -105,10 +105,10 @@ Recebe um e-mail com link seguro, acessa a tela de aprovação, visualiza o esco
 **Idade:** 44 anos  
 
 **Contexto:**  
-Roberto não usa o EscopoCerto diretamente. Ele é o motivo pelo qual o sistema existe. É ele quem descreveu o problema para o Carlos na reunião, e é a expectativa dele que o sistema precisa capturar com precisão.
+Roberto não usa o Escopo Pronto diretamente. Ele é o motivo pelo qual o sistema existe. É ele quem descreveu o problema para o Carlos na reunião, e é a expectativa dele que o sistema precisa capturar com precisão.
 
 **Relevância para o produto:**  
-O sucesso do EscopoCerto é medido pela distância entre o que Roberto descreveu e o que foi desenvolvido. Quanto menor esse gap, mais o sistema está cumprindo seu propósito.
+O sucesso do Escopo Pronto é medido pela distância entre o que Roberto descreveu e o que foi desenvolvido. Quanto menor esse gap, mais o sistema está cumprindo seu propósito.
 
 **Não usa o sistema, mas impacta:**  
 - A qualidade do briefing que o Carlos registra
@@ -317,7 +317,7 @@ O sucesso do EscopoCerto é medido pela distância entre o que Roberto descreveu
 
 ### 6.1 Padrão Arquitetural
 
-O EscopoCerto adota o padrão Layered Architecture (Arquitetura em Camadas) com 4 camadas bem definidas. Cada camada tem responsabilidade única e se comunica exclusivamente com a camada imediatamente abaixo, garantindo separação de responsabilidades, facilidade de manutenção e testabilidade independente de cada módulo.
+O Escopo Pronto adota o padrão Layered Architecture (Arquitetura em Camadas) com 4 camadas bem definidas. Cada camada tem responsabilidade única e se comunica exclusivamente com a camada imediatamente abaixo, garantindo separação de responsabilidades, facilidade de manutenção e testabilidade independente de cada módulo.
 ┌─────────────────────────────────────────┐
 │         Camada de Apresentação          │
 │   React + Vite (frontend)               │
@@ -367,13 +367,13 @@ O EscopoCerto adota o padrão Layered Architecture (Arquitetura em Camadas) com 
 |
 └── [Models] ──────────────────► [PostgreSQL , Supabase]
 
-### 6.3 Como o RAG Funciona no EscopoCerto
+### 6.3 Como o RAG Funciona no Escopo Pronto
 
 O RAG (Retrieval-Augmented Generation) é o mecanismo que garante que a IA gere escopos fundamentados em projetos reais, e não em conhecimento genérico. Funciona em duas etapas distintas:
 
 **Etapa 1, Indexação (feita uma vez, ao configurar o sistema):**
 
-Pensa numa biblioteca com centenas de livros. Para encontrar rapidamente os livros mais parecidos com o que você procura, alguém precisou ler todos e criar um índice detalhado. A OpenAI Embeddings faz exatamente isso com a base de conhecimento do EscopoCerto. Ela lê cada projeto fictício da base e transforma em números (vetores) que representam o significado do texto. Esses vetores ficam armazenados no pgvector dentro do Supabase.
+Pensa numa biblioteca com centenas de livros. Para encontrar rapidamente os livros mais parecidos com o que você procura, alguém precisou ler todos e criar um índice detalhado. A OpenAI Embeddings faz exatamente isso com a base de conhecimento do Escopo Pronto. Ela lê cada projeto fictício da base e transforma em números (vetores) que representam o significado do texto. Esses vetores ficam armazenados no pgvector dentro do Supabase.
 [projetos.json]
 ,
 [OpenAI Embeddings API]
@@ -945,7 +945,7 @@ para ter rastreabilidade total do processo de aprovação.
 
 ## 10. Fluxos e Diagramas
 
-### 10.1 Processo AS-IS (Como é hoje, sem o EscopoCerto)
+### 10.1 Processo AS-IS (Como é hoje, sem o Escopo Pronto)
 
 O processo atual de geração de escopo em uma software house ocorre de forma manual, informal e dependente de múltiplos pontos de comunicação sem padronização.
 [Reunião com cliente]
@@ -978,13 +978,13 @@ O processo atual de geração de escopo em uma software house ocorre de forma ma
 
 ---
 
-### 10.2 Processo TO-BE (Como fica com o EscopoCerto)
+### 10.2 Processo TO-BE (Como fica com o Escopo Pronto)
 
-Com o EscopoCerto, o processo se torna estruturado, rápido, rastreável
+Com o Escopo Pronto, o processo se torna estruturado, rápido, rastreável
 e independente de comunicação informal.
 [Reunião com cliente]
 ,
-[Comercial abre o EscopoCerto e preenche o briefing]
+[Comercial abre o Escopo Pronto e preenche o briefing]
 , (durante ou logo após a reunião)
 [IA processa via RAG e gera escopo em minutos]
 ,
@@ -1113,7 +1113,7 @@ e tipografia Inter.
 **Tela 1, Landing Page**
 SEÇÃO 1, Hero (100vh, centralizado)
 , Fundo #0A0A0A com Aurora verde animada via CSS keyframes
-, Nav: logo ✅ EscopoCerto à esquerda + botão "Entrar" glass à direita
+, Nav: logo ✅ Escopo Pronto à esquerda + botão "Entrar" glass à direita
 , Headline grande centralizada com fade + slide up via Framer Motion:
 "O que o cliente espera é o que será entregue."
 , Subtítulo em #A1A1AA com delay de animação:
@@ -1159,7 +1159,7 @@ Apple iOS (glassmorphism)
 ┌─────────────────────────────────────────────────────┐
 │ fundo #0A0A0A, Aurora verde suave no topo           │
 │                                                     │
-│  ✅ EscopoCerto                  [Carlos A.] [Sair] │
+│  ✅ Escopo Pronto                  [Carlos A.] [Sair] │
 │  nav glass com borda bottom sutil                   │
 ├─────────────────────────────────────────────────────┤
 │                                                     │
@@ -1263,7 +1263,7 @@ Estado de loading (após clicar em Gerar):
 ┌─────────────────────────────────────────────────────┐
 │ fundo #0A0A0A, Aurora verde suave                   │
 │                                                     │
-│  ✅ EscopoCerto                                     │
+│  ✅ Escopo Pronto                                     │
 │  "Aprovação de Escopo"                              │
 │                                                     │
 │  ┌──────────────────────────────────────────────┐  │
@@ -1310,7 +1310,7 @@ Estado de loading (após clicar em Gerar):
 ┌─────────────────────────────────────────────────────┐
 │ fundo #0A0A0A                                       │
 │                                                     │
-│  ✅ EscopoCerto                  [Carlos A.] [Sair] │
+│  ✅ Escopo Pronto                  [Carlos A.] [Sair] │
 │                                                     │
 │  Histórico de Briefings                             │
 │                                                     │
@@ -1626,7 +1626,7 @@ de formação técnica ou área de atuação.
 
 **Autenticação**
 Processo de verificar a identidade de um usuário antes de conceder
-acesso ao sistema. No EscopoCerto é feita via e-mail e senha,
+acesso ao sistema. No Escopo Pronto é feita via e-mail e senha,
 gerando um token JWT após login bem-sucedido.
 
 ---
@@ -1647,7 +1647,7 @@ ao banco de dados.
 
 **Briefing**
 Documento ou registro contendo as informações coletadas pelo
-comercial durante a reunião com o cliente. No EscopoCerto é
+comercial durante a reunião com o cliente. No Escopo Pronto é
 preenchido em linguagem natural e serve como base para a geração
 de escopo pela IA.
 
@@ -1655,7 +1655,7 @@ de escopo pela IA.
 
 **Claude API**
 Interface de programação fornecida pela Anthropic para acesso ao
-modelo de linguagem Claude. Utilizada no EscopoCerto para geração
+modelo de linguagem Claude. Utilizada no Escopo Pronto para geração
 de escopo, estimativas de squad e análise de viabilidade.
 
 ---
@@ -1663,14 +1663,14 @@ de escopo, estimativas de squad e análise de viabilidade.
 **CORS**
 Cross-Origin Resource Sharing. Mecanismo de segurança do navegador
 que controla quais domínios podem fazer requisições à API. No
-EscopoCerto é configurado para aceitar requisições apenas do
+Escopo Pronto é configurado para aceitar requisições apenas do
 domínio do frontend em produção.
 
 ---
 
 **Deploy**
 Processo de publicar o sistema em um ambiente de produção,
-tornando-o acessível aos usuários finais. No EscopoCerto é
+tornando-o acessível aos usuários finais. No Escopo Pronto é
 realizado via Railway.
 
 ---
@@ -1685,7 +1685,7 @@ base de conhecimento.
 
 **Épico**
 Agrupamento de user stories relacionadas que representam uma
-funcionalidade maior do produto. No PRD do EscopoCerto os épicos
+funcionalidade maior do produto. No PRD do Escopo Pronto os épicos
 são: Autenticação, Briefing, IA, Aprovação e Segurança.
 
 ---
@@ -1694,13 +1694,13 @@ são: Autenticação, Briefing, IA, Aprovação e Segurança.
 Definição clara e documentada do que será desenvolvido em um
 projeto de software, incluindo funcionalidades, tecnologias,
 prazo e custo estimados. O principal entregável gerado pelo
-EscopoCerto.
+Escopo Pronto.
 
 ---
 
 **Fallback**
 Comportamento alternativo do sistema quando uma operação falha.
-No EscopoCerto o fallback da IA exibe uma mensagem clara ao
+No Escopo Pronto o fallback da IA exibe uma mensagem clara ao
 usuário e salva o briefing com flag de falha, permitindo
 reprocessamento manual.
 
@@ -1708,28 +1708,28 @@ reprocessamento manual.
 
 **Gap de escopo**
 Diferença entre o que o cliente descreveu e o que foi
-desenvolvido. Principal problema que o EscopoCerto resolve,
+desenvolvido. Principal problema que o Escopo Pronto resolve,
 reduzindo interpretações divergentes entre comercial e técnico.
 
 ---
 
 **Glassmorphism**
 Estilo visual que simula vidro fosco, com fundo semitransparente,
-desfoque (blur) e borda sutil. Utilizado no design do EscopoCerto
+desfoque (blur) e borda sutil. Utilizado no design do Escopo Pronto
 em cards, modais e elementos de interface.
 
 ---
 
 **Gmail API**
 Interface de programação do Google para envio e leitura de
-e-mails via Gmail. Utilizada no EscopoCerto para envio do
+e-mails via Gmail. Utilizada no Escopo Pronto para envio do
 e-mail de notificação ao supervisor com o link de aprovação.
 
 ---
 
 **Hash**
 Transformação irreversível de um dado em uma sequência fixa de
-caracteres. Utilizado no EscopoCerto para armazenar tokens UUID
+caracteres. Utilizado no Escopo Pronto para armazenar tokens UUID
 no banco sem expor o valor original.
 
 ---
@@ -1750,7 +1750,7 @@ necessidade de armazenar sessões no servidor.
 
 **Layered Architecture**
 Padrão de arquitetura de software que organiza o sistema em
-camadas com responsabilidades bem definidas. No EscopoCerto
+camadas com responsabilidades bem definidas. No Escopo Pronto
 são 4 camadas: Apresentação, Aplicação, Serviço e Dados.
 
 ---
@@ -1758,14 +1758,14 @@ são 4 camadas: Apresentação, Aplicação, Serviço e Dados.
 **LGPD**
 Lei Geral de Proteção de Dados. Legislação brasileira que
 regulamenta o tratamento de dados pessoais. Relevante para
-o EscopoCerto na proteção dos dados de clientes cadastrados
+o Escopo Pronto na proteção dos dados de clientes cadastrados
 nos briefings.
 
 ---
 
 **Multi-tenant**
 Arquitetura onde um único sistema atende múltiplas empresas
-(tenants) de forma isolada. O EscopoCerto tem estrutura
+(tenants) de forma isolada. O Escopo Pronto tem estrutura
 preparada para multi-tenant em versões futuras, sem
 implementação na v1.
 
@@ -1773,7 +1773,7 @@ implementação na v1.
 
 **OpenAI Embeddings API**
 Interface de programação da OpenAI especializada em transformar
-textos em vetores numéricos (embeddings). Utilizada no EscopoCerto
+textos em vetores numéricos (embeddings). Utilizada no Escopo Pronto
 para indexar a base de conhecimento e transformar briefings em
 vetores para busca por similaridade.
 
@@ -1781,7 +1781,7 @@ vetores para busca por similaridade.
 
 **pgvector**
 Extensão do PostgreSQL para armazenamento e busca eficiente de
-vetores numéricos. Utilizada no EscopoCerto via Supabase para
+vetores numéricos. Utilizada no Escopo Pronto via Supabase para
 encontrar projetos similares ao briefing através de busca
 por similaridade semântica.
 
@@ -1790,14 +1790,14 @@ por similaridade semântica.
 **PRD**
 Product Requirements Document. Documento que descreve o produto,
 suas funcionalidades, requisitos e decisões técnicas. Este
-documento é o PRD do EscopoCerto.
+documento é o PRD do Escopo Pronto.
 
 ---
 
 **Prompt Engineering**
 Técnica de estruturar instruções para modelos de linguagem de
 forma a obter respostas mais precisas, consistentes e úteis.
-Utilizado no EscopoCerto para garantir que a Claude API gere
+Utilizado no Escopo Pronto para garantir que a Claude API gere
 escopos no formato esperado com as informações corretas.
 
 ---
@@ -1806,14 +1806,14 @@ escopos no formato esperado com as informações corretas.
 Retrieval-Augmented Generation. Técnica que combina busca em
 base de dados com geração de texto por IA. Em vez de responder
 apenas com conhecimento genérico, a IA consulta dados reais
-antes de gerar a resposta. No EscopoCerto o RAG usa projetos
+antes de gerar a resposta. No Escopo Pronto o RAG usa projetos
 históricos para fundamentar as estimativas geradas.
 
 ---
 
 **Railway**
 Plataforma de deploy em nuvem utilizada para hospedar o backend
-e o banco de dados do EscopoCerto em produção.
+e o banco de dados do Escopo Pronto em produção.
 
 ---
 
@@ -1826,14 +1826,14 @@ contra abuso, ataques de força bruta e uso excessivo da API de IA.
 
 **Retry**
 Tentativa automática de reexecutar uma operação que falhou.
-No EscopoCerto o sistema tenta até 2 vezes chamar a Claude API
+No Escopo Pronto o sistema tenta até 2 vezes chamar a Claude API
 antes de registrar falha e acionar o fallback.
 
 ---
 
 **Squad**
 Equipe de desenvolvimento responsável por um projeto. No
-EscopoCerto o squad sugerido pela IA inclui perfis como
+Escopo Pronto o squad sugerido pela IA inclui perfis como
 Tech Lead, Dev Pleno e Dev Júnior com suas respectivas
 estimativas de horas.
 
@@ -1841,7 +1841,7 @@ estimativas de horas.
 
 **SQL Injection**
 Ataque que insere comandos SQL maliciosos em campos de entrada
-para manipular o banco de dados. Prevenido no EscopoCerto via
+para manipular o banco de dados. Prevenido no Escopo Pronto via
 queries parametrizadas e sanitização de inputs.
 
 ---
@@ -1857,14 +1857,14 @@ no servidor.
 **Supabase**
 Plataforma que fornece PostgreSQL gerenciado com funcionalidades
 adicionais incluindo pgvector para busca vetorial. Utilizada no
-EscopoCerto como banco de dados principal e motor de RAG.
+Escopo Pronto como banco de dados principal e motor de RAG.
 
 ---
 
 **Token UUID**
 Identificador único universal gerado aleatoriamente, utilizado
 como token de acesso seguro para a tela de aprovação do
-supervisor. No EscopoCerto o token é de uso único, expira em
+supervisor. No Escopo Pronto o token é de uso único, expira em
 48 horas e é armazenado apenas como hash no banco de dados.
 
 ---
@@ -1873,14 +1873,14 @@ supervisor. No EscopoCerto o token é de uso único, expira em
 Descrição de uma funcionalidade do ponto de vista do usuário,
 no formato "Como [usuário], quero [funcionalidade] para
 [benefício]". Utilizada para descrever os requisitos do
-EscopoCerto de forma orientada ao valor entregue.
+Escopo Pronto de forma orientada ao valor entregue.
 
 ---
 
 **Versionamento de escopo**
 Mecanismo que cria uma nova versão do escopo a cada
 reprocessamento, preservando o histórico completo. No
-EscopoCerto cada geração cria v1, v2, v3... sem sobrescrever
+Escopo Pronto cada geração cria v1, v2, v3... sem sobrescrever
 versões anteriores.
 
 ---
@@ -1888,7 +1888,7 @@ versões anteriores.
 **XSS**
 Cross-Site Scripting. Ataque que injeta código JavaScript
 malicioso em páginas web através de campos de entrada.
-Prevenido no EscopoCerto via sanitização de todos os inputs
+Prevenido no Escopo Pronto via sanitização de todos os inputs
 antes de processar ou exibir dados.
 
 ## 13. Premissas e Dependências
@@ -1951,7 +1951,7 @@ tratado como spam.
 
 Dependências são serviços, ferramentas ou condições externas que
 o sistema precisa para funcionar. Falha em qualquer dependência
-impacta diretamente o EscopoCerto.
+impacta diretamente o Escopo Pronto.
 
 ---
 
@@ -2187,7 +2187,7 @@ dados reais de nenhuma empresa específica.
 
 ### 15.1 Problema Quantificado
 
-Para dimensionar o valor do EscopoCerto, é necessário primeiro
+Para dimensionar o valor do Escopo Pronto, é necessário primeiro
 estimar o custo do problema que ele resolve.
 
 **Cenário base de uma software house de médio porte:**
@@ -2209,14 +2209,14 @@ Entre R$ 150.000 e R$ 245.000 em retrabalho e oportunidades perdidas.
 
 ---
 
-### 15.2 Valor Gerado pelo EscopoCerto
+### 15.2 Valor Gerado pelo Escopo Pronto
 
 **Redução do tempo de geração de proposta:**
 
 | Situação | Tempo |
 |---|---|
 | Processo atual (AS-IS) | 2 a 5 dias |
-| Com EscopoCerto (TO-BE) | 15 a 30 minutos |
+| Com Escopo Pronto (TO-BE) | 15 a 30 minutos |
 | Redução estimada | 95% |
 
 Com propostas geradas em minutos, o comercial pode responder ao
@@ -2256,7 +2256,7 @@ disputas contratuais e desgaste no relacionamento.
 | Redução de conflitos contratuais | Não quantificável diretamente |
 
 **Retorno sobre o investimento (ROI):**
-Considerando o custo de desenvolvimento do EscopoCerto como
+Considerando o custo de desenvolvimento do Escopo Pronto como
 investimento único e os benefícios mensais estimados, o sistema
 se paga em menos de 30 dias de operação no cenário base.
 
@@ -2264,7 +2264,7 @@ se paga em menos de 30 dias de operação no cenário base.
 
 ### 15.4 Métricas de Acompanhamento
 
-Após o lançamento, o sucesso do EscopoCerto deve ser medido pelos
+Após o lançamento, o sucesso do Escopo Pronto deve ser medido pelos
 seguintes indicadores:
 
 | Métrica | Meta v1 | Como medir |
@@ -2280,7 +2280,7 @@ seguintes indicadores:
 
 ### 15.5 Posicionamento Competitivo
 
-O EscopoCerto não compete com ferramentas genéricas de proposta
+O Escopo Pronto não compete com ferramentas genéricas de proposta
 como Google Docs ou Word. Ele compete com a ausência de processo,
 que é o cenário atual da maioria das software houses brasileiras
 de pequeno e médio porte.
@@ -2298,7 +2298,7 @@ pessoas em um processo sistematizado, escalável e auditável.
 
 ### 16.1 Objetivos
 
-Garantir que todas as funcionalidades do EscopoCerto funcionam
+Garantir que todas as funcionalidades do Escopo Pronto funcionam
 conforme especificado nos requisitos e casos de uso, com foco
 especial nos fluxos críticos de segurança, geração de IA e
 aprovação via token.
@@ -2503,7 +2503,7 @@ de ferramentas da software house.
 ## 18. Decisões e Trade-offs
 
 Esta seção documenta as principais decisões técnicas e de produto
-tomadas durante a concepção do EscopoCerto, com o contexto,
+tomadas durante a concepção do Escopo Pronto, com o contexto,
 as alternativas consideradas e a justificativa da escolha.
 Decisões bem documentadas demonstram maturidade de produto e
 facilitam revisões futuras.
@@ -2625,7 +2625,7 @@ menor custo, maior confiabilidade.
 
 **Contexto:**
 A base de conhecimento RAG precisa de projetos históricos para
-fundamentar as estimativas. O EscopoCerto é um projeto de portfólio,
+fundamentar as estimativas. O Escopo Pronto é um projeto de portfólio,
 sem acesso a dados reais de nenhuma software house.
 
 **Opções consideradas:**
@@ -2678,7 +2678,7 @@ qualquer dev que entre no projeto.
 ### D07, Vibe coding com Claude Code + Cursor em vez de desenvolvimento manual
 
 **Contexto:**
-O EscopoCerto é desenvolvido por um único desenvolvedor com perfil
+O Escopo Pronto é desenvolvido por um único desenvolvedor com perfil
 de Business Analyst e Product Owner, com experiência em desenvolvimento
 assistido por IA.
 

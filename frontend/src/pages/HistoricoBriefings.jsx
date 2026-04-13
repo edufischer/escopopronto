@@ -76,7 +76,7 @@ const HistoricoBriefings = () => {
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <div className="flex items-center gap-2 font-bold text-xl cursor-pointer" onClick={() => navigate('/dashboard')}>
             <span className="text-primary">✅</span>
-            <span className="hidden md:inline">EscopoCerto</span>
+            <span className="hidden md:inline">Escopo Pronto</span>
           </div>
           <button onClick={logout} className="p-2 rounded-lg hover:bg-white/5 text-secondary hover:text-white transition-all flex items-center gap-2 text-sm">
             <LogOut size={18} />

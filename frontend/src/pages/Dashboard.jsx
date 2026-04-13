@@ -90,7 +90,7 @@ const Dashboard = () => {
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <div className="flex items-center gap-2 font-bold text-xl cursor-pointer" onClick={() => navigate('/dashboard')}>
             <span className="text-primary">✅</span>
-            <span className="hidden md:inline">EscopoCerto</span>
+            <span className="hidden md:inline">Escopo Pronto</span>
           </div>
           
           <div className="flex items-center gap-4">

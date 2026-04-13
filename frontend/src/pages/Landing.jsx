@@ -10,7 +10,7 @@ import {
 } from 'lucide-react';
 
 /**
- * Componente de Landing Page do EscopoCerto.
+ * Componente de Landing Page do Escopo Pronto.
  * Implementa design premium com Glassmorphism, Aurora Effect e animações Framer Motion.
  */
 const Landing = () => {
@@ -56,7 +56,7 @@ const Landing = () => {
         <nav className="absolute top-0 w-full px-6 py-8 flex justify-between items-center z-20 max-w-7xl mx-auto">
           <div className="text-2xl font-bold flex items-center gap-2">
             <span className="text-primary">✅</span>
-            <span className="text-white">EscopoCerto</span>
+            <span className="text-white">Escopo Pronto</span>
           </div>
           <button
             onClick={() => navigate('/login')}
@@ -186,7 +186,7 @@ const Landing = () => {
             variants={staggerContainer}
           >
             <motion.h2 variants={fadeInUp} className="text-3xl md:text-4xl font-bold text-white mb-8">
-              Por que o EscopoCerto?
+              Por que o Escopo Pronto?
             </motion.h2>
 
             <div className="space-y-6">
@@ -278,12 +278,12 @@ const Landing = () => {
       <footer className="py-12 bg-background border-t border-white/5 px-6">
         <div className="max-w-7xl mx-auto flex flex-col md:row justify-between items-center gap-6">
           <div className="flex items-center gap-2 font-bold text-white/50">
-            <span>✅</span> EscopoCerto
+            <span>✅</span> Escopo Pronto
           </div>
           <p className="text-secondary/50 text-sm">
-            © 2026 EscopoCerto
+            © 2026 Escopo Pronto
             Projeto acadêmico desenvolvido para fins de portfólio profissional.
-            Sem vínculo com o domínio escopocerto.com.br.
+            Sem vínculo com o domínio escopopronto.com.br.
           </p>
         </div>
       </footer>

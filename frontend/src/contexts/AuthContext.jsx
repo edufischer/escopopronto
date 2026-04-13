@@ -15,8 +15,8 @@ export const AuthProvider = ({ children }) => {
    * Inicialização: Tenta recuperar o token e o usuário do localStorage ao carregar.
    */
   useEffect(() => {
-    const storagedToken = localStorage.getItem('@EscopoCerto:token');
-    const storagedUser = localStorage.getItem('@EscopoCerto:usuario');
+    const storagedToken = localStorage.getItem('@Escopo Pronto:token');
+    const storagedUser = localStorage.getItem('@Escopo Pronto:usuario');
 
     if (storagedToken && storagedUser) {
       setToken(storagedToken);
@@ -38,8 +38,8 @@ export const AuthProvider = ({ children }) => {
       
       const { token, usuario } = response.data;
 
-      localStorage.setItem('@EscopoCerto:token', token);
-      localStorage.setItem('@EscopoCerto:usuario', JSON.stringify(usuario));
+      localStorage.setItem('@Escopo Pronto:token', token);
+      localStorage.setItem('@Escopo Pronto:usuario', JSON.stringify(usuario));
 
       setToken(token);
       setUsuario(usuario);
@@ -60,8 +60,8 @@ export const AuthProvider = ({ children }) => {
    * Realiza o logout, limpando o estado local e o localStorage.
    */
   const logout = useCallback(() => {
-    localStorage.removeItem('@EscopoCerto:token');
-    localStorage.removeItem('@EscopoCerto:usuario');
+    localStorage.removeItem('@Escopo Pronto:token');
+    localStorage.removeItem('@Escopo Pronto:usuario');
 
     setToken(null);
     setUsuario(null);

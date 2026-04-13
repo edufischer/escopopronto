@@ -1,4 +1,4 @@
-# EscopoCerto ✅ , Contexto do Projeto
+# Escopo Pronto ✅ , Contexto do Projeto
 
 **Lema:** "O que o cliente espera é o que será entregue."
 
@@ -233,7 +233,7 @@ Services não conhecem o Express, são independentes de framework.
 
 
 ## Estrutura de Pastas
-escopocerto/
+escopopronto/
 ├── frontend/
 │   ├── src/
 │   │   ├── components/

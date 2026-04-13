@@ -1,7 +1,7 @@
 {
-  "name": "escopocerto-backend",
+  "name": "escopopronto-backend",
   "version": "1.0.0",
-  "description": "Backend para a plataforma EscopoCerto",
+  "description": "Backend para a plataforma Escopo Pronto",
   "main": "src/index.js",
   "scripts": {
     "start": "node src/index.js",

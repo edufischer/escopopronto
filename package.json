@@ -1,5 +1,5 @@
 {
-    "name": "escopocerto",
+    "name": "escopopronto",
     "version": "1.0.0",
     "description": "Arquivo de configuração raiz utilizado pelo Railway para localizar e iniciar o servidor backend. O código fonte do backend está em backend/src/index.js seguindo a estrutura de monorepo do projeto.",
     "scripts": {

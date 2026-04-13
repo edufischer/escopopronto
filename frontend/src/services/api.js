@@ -14,7 +14,7 @@ const api = axios.create({
  */
 api.interceptors.request.use(
   (config) => {
-    const token = localStorage.getItem('@EscopoCerto:token');
+    const token = localStorage.getItem('@Escopo Pronto:token');
 
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
@@ -35,8 +35,8 @@ api.interceptors.response.use(
   (error) => {
     // Se o backend retornar 401, limpa os dados locais e redireciona para o login
     if (error.response && error.response.status === 401) {
-      localStorage.removeItem('@EscopoCerto:token');
-      localStorage.removeItem('@EscopoCerto:usuario');
+      localStorage.removeItem('@Escopo Pronto:token');
+      localStorage.removeItem('@Escopo Pronto:usuario');
 
       // Só redireciona se não estiver já na página de login para evitar loop
       if (!window.location.pathname.includes('/login')) {

@@ -5,7 +5,7 @@ import { useAuth } from '../hooks/useAuth';
 import { LogIn, Mail, Lock, AlertCircle } from 'lucide-react';
 
 /**
- * Página de Login do EscopoCerto.
+ * Página de Login do Escopo Pronto.
  * Gerencia a autenticação do usuário com design Glassmorphism.
  */
 const Login = () => {
@@ -54,7 +54,7 @@ const Login = () => {
           <div className="flex flex-col items-center mb-8">
             <div className="text-3xl font-bold flex items-center gap-2 mb-2">
               <span className="text-primary">✅</span>
-              <span className="text-white">EscopoCerto</span>
+              <span className="text-white">Escopo Pronto</span>
             </div>
             <p className="text-secondary text-sm">Entrar na plataforma</p>
           </div>
