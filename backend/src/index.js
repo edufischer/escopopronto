@@ -4,6 +4,7 @@ const helmet = require('helmet');
 const cors = require('cors');
 const rateLimit = require('express-rate-limit');
 const authRoutes = require('./routes/authRoutes');
+const briefingRoutes = require('./routes/briefingRoutes');
 
 const app = express();
 app.set('trust proxy', 1); // Necessário para o Railway e outros proxies reversos
@@ -56,6 +57,9 @@ app.use(express.json());
 
 // Rotas de Autenticação
 app.use('/api/auth', authRoutes);
+
+// Rotas de Briefing
+app.use('/api/briefings', briefingRoutes);
 
 // Rota de Health Check
 app.get('/health', (req, res) => {
