@@ -27,6 +27,30 @@ Este é um projeto acadêmico e de portfólio profissional, desenvolvido para de
 
 ---
 
+---
+
+## O que já está funcionando
+
+- ✅ Cadastro e login de usuários
+- ✅ Criação de briefing em linguagem natural
+- ✅ Geração de escopo via IA (Claude API + RAG)
+- ✅ Versionamento de escopos (v1, v2, v3...)
+- ✅ Dashboard com histórico e status dos briefings
+- ✅ Backend em produção no Railway
+- ✅ Frontend em produção no Vercel
+
+---
+
+## O que ainda está sendo desenvolvido
+
+- 🔧 Fluxo de aprovação pelo supervisor
+- 🔧 Envio de e-mail com link seguro
+- 🔧 Tela de aprovação via token
+- 🔧 Indexação completa da base de conhecimento RAG
+- 🔧 Ajustes finais de UX e responsividade
+
+---
+
 ## Stack Tecnológica
 
 | Frontend | Backend |
