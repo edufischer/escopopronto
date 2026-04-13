@@ -3,6 +3,7 @@
 > "O que o cliente espera é o que será entregue."
 
 ![Status](https://img.shields.io/badge/status-em%20desenvolvimento-yellow)
+[![PRD](https://img.shields.io/badge/docs-PRD%20completo-blue)](docs/PRD.md)
 
 ---
 
