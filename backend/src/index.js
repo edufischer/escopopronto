@@ -6,6 +6,10 @@ const rateLimit = require('express-rate-limit');
 const authRoutes = require('./routes/authRoutes');
 
 const app = express();
+app.set('trust proxy', 1); // Necessário para o Railway e outros proxies reversos
+
+
+
 const PORT = process.env.PORT || 3000;
 
 // Configuração do Helmet para segurança de headers HTTP
@@ -14,13 +18,15 @@ app.use(helmet());
 // Configuração do CORS baseado no ambiente
 const corsOptions = {
   origin: (origin, callback) => {
+    // Permite requisições sem origin (Postman, curl, mobile apps)
+    if (!origin) return callback(null, true);
+
     const allowedOrigins = [
-      'http://localhost:5173', // Frontend em desenvolvimento
-      process.env.BASE_URL // URL base configurada no .env
+      'http://localhost:5173',
+      process.env.BASE_URL
     ];
 
-    // Em desenvolvimento, permite requisições sem origin (ex: Postman)
-    if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+    if (allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
       callback(new Error('Não permitido pelo CORS'));
@@ -30,7 +36,6 @@ const corsOptions = {
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true
 };
-
 app.use(cors(corsOptions));
 
 // Rate limiting global: 100 requisições por 15 minutos por IP
@@ -81,5 +86,3 @@ app.listen(PORT, () => {
   console.log(`Servidor rodando na porta ${PORT} em modo ${process.env.NODE_ENV || 'development'}`);
 });
 
-// Necessário para o Railway e outros proxies reversos
-app.set('trust proxy', 1);
