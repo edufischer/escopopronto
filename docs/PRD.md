@@ -28,6 +28,10 @@ O escopo gerado é revisado pelo comercial e enviado ao supervisor técnico para
 O resultado é um processo comercial mais rápido, mais padronizado e com muito menos espaço para interpretações divergentes.
 
 ### 1.3 Lema e Posicionamento
+Este projeto é desenvolvido para fins acadêmicos e de portfólio 
+profissional, como demonstração de competências em análise de sistemas, 
+produto e desenvolvimento assistido por IA. Não possui vínculo comercial 
+com nenhuma empresa ou domínio de mesmo nome.
 
 > "O que o cliente espera é o que será entregue."
 
