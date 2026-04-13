@@ -5,6 +5,9 @@ import Landing from './pages/Landing';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
+import NovoBriefing from './pages/NovoBriefing';
+import DetalheBriefing from './pages/DetalheBriefing';
+import HistoricoBriefings from './pages/HistoricoBriefings';
 
 // Componentes de Layout Base (Placeholder)
 const Layout = ({ children }) => <div className="min-h-screen aurora-bg">{children}</div>;
@@ -26,11 +29,6 @@ const PublicRoute = ({ children }) => {
 
   return !isAuthenticated ? children : <Navigate to="/dashboard" replace />;
 };
-
-// Páginas Placeholders Restantes
-const NovoBriefing = () => <h1>Novo Briefing (Em breve)</h1>;
-const HistoricoBriefings = () => <h1>Histórico de Briefings (Em breve)</h1>;
-const DetalhesBriefing = () => <h1>Detalhes do Briefing (Em breve)</h1>;
 
 function App() {
   return (
