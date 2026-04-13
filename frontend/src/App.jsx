@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider, AuthContext } from './contexts/AuthContext';
 import { useContext } from 'react';
+import Landing from './pages/Landing';
 
 // Componentes de Layout Base (Placeholder)
 const Layout = ({ children }) => <div className="min-h-screen aurora-bg">{children}</div>;
@@ -24,7 +25,6 @@ const PublicRoute = ({ children }) => {
 };
 
 // Páginas Placeholders
-const Landing = () => <h1>Landing Page (Em breve)</h1>;
 const Login = () => <h1>Login Page (Em breve)</h1>;
 const Dashboard = () => <h1>Dashboard (Em breve)</h1>;
 const NovoBriefing = () => <h1>Novo Briefing (Em breve)</h1>;
@@ -39,47 +39,47 @@ function App() {
           <Routes>
             {/* Rotas Públicas */}
             <Route path="/" element={<Landing />} />
-            <Route 
-              path="/login" 
+            <Route
+              path="/login"
               element={
                 <PublicRoute>
                   <Login />
                 </PublicRoute>
-              } 
+              }
             />
 
             {/* Rotas Protegidas */}
-            <Route 
-              path="/dashboard" 
+            <Route
+              path="/dashboard"
               element={
                 <PrivateRoute>
                   <Dashboard />
                 </PrivateRoute>
-              } 
+              }
             />
-            <Route 
-              path="/briefings/novo" 
+            <Route
+              path="/briefings/novo"
               element={
                 <PrivateRoute>
                   <NovoBriefing />
                 </PrivateRoute>
-              } 
+              }
             />
-            <Route 
-              path="/briefings" 
+            <Route
+              path="/briefings"
               element={
                 <PrivateRoute>
                   <HistoricoBriefings />
                 </PrivateRoute>
-              } 
+              }
             />
-            <Route 
-              path="/briefings/:id" 
+            <Route
+              path="/briefings/:id"
               element={
                 <PrivateRoute>
                   <DetalhesBriefing />
                 </PrivateRoute>
-              } 
+              }
             />
 
             {/* Redirecionamento para 404/Home */}

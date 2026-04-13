@@ -231,28 +231,6 @@ Services não conhecem o Express, são independentes de framework.
 
 ---
 
-## Variáveis de Ambiente
-Anthropic
-ANTHROPIC_API_KEY=
-OpenAI (somente embeddings)
-OPENAI_API_KEY=
-Supabase
-SUPABASE_URL=
-SUPABASE_ANON_KEY=
-JWT
-JWT_SECRET=
-JWT_EXPIRES_IN=8h
-Gmail
-GMAIL_USER=
-GMAIL_CLIENT_ID=
-GMAIL_CLIENT_SECRET=
-GMAIL_REFRESH_TOKEN=
-App
-PORT=3000
-BASE_URL=https://escopocerto.up.railway.app
-NODE_ENV=production
-
----
 
 ## Estrutura de Pastas
 escopocerto/
