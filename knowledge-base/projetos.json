@@ -1,0 +1,214 @@
+[
+  {
+    "id": "proj_001",
+    "titulo": "E-commerce de Moda Premium",
+    "segmento": "Varejo",
+    "descricao": "Desenvolvimento de plataforma e-commerce completa para marca de moda de luxo, com foco em experiência do usuário e alta performance.",
+    "tecnologias": ["React", "Node.js", "PostgreSQL", "Redis", "AWS"],
+    "squad": {
+      "tech_lead": 1,
+      "frontend_developer": 2,
+      "backend_developer": 2,
+      "ux_ui_designer": 1,
+      "qa_engineer": 1
+    },
+    "horas_estimadas": {
+      "tech_lead": 160,
+      "frontend_developer": 640,
+      "backend_developer": 640,
+      "ux_ui_designer": 240,
+      "qa_engineer": 160
+    },
+    "horas_total": 1840,
+    "custo_estimado": 250000.00,
+    "prazo_semanas": 16,
+    "viabilidade": "Alta",
+    "complexidade": "Média",
+    "observacoes": "Necessário integração com gateway de pagamento e ERP proprietário.",
+    "resultado": "Sucesso. Entregue no prazo com 98% de aprovação do cliente."
+  },
+  {
+    "id": "proj_002",
+    "titulo": "App de Gestão Logística",
+    "segmento": "Logística",
+    "descricao": "Aplicativo mobile e dashboard web para rastreamento de frotas e gestão de entregas em tempo real.",
+    "tecnologias": ["React Native", "Node.js", "MongoDB", "Google Maps API"],
+    "squad": {
+      "tech_lead": 1,
+      "mobile_developer": 2,
+      "backend_developer": 2,
+      "ux_ui_designer": 1,
+      "qa_engineer": 1
+    },
+    "horas_estimadas": {
+      "tech_lead": 180,
+      "mobile_developer": 800,
+      "backend_developer": 600,
+      "ux_ui_designer": 200,
+      "qa_engineer": 160
+    },
+    "horas_total": 1940,
+    "custo_estimado": 280000.00,
+    "prazo_semanas": 18,
+    "viabilidade": "Alta",
+    "complexidade": "Alta",
+    "observacoes": "Desafio técnico na sincronização offline e geolocalização precisa.",
+    "resultado": "Sucesso. Redução de 15% nos custos logísticos do cliente."
+  },
+  {
+    "id": "proj_003",
+    "titulo": "Portal de Telemedicina",
+    "segmento": "Saúde",
+    "descricao": "Plataforma para consultas online com integração de vídeo, prontuário eletrônico e agendamento.",
+    "tecnologias": ["Next.js", "Node.js", "WebRTC", "Supabase", "Docker"],
+    "squad": {
+      "tech_lead": 1,
+      "fullstack_developer": 3,
+      "ux_ui_designer": 1,
+      "qa_engineer": 1
+    },
+    "horas_estimadas": {
+      "tech_lead": 120,
+      "fullstack_developer": 960,
+      "ux_ui_designer": 160,
+      "qa_engineer": 120
+    },
+    "horas_total": 1360,
+    "custo_estimado": 180000.00,
+    "prazo_semanas": 12,
+    "viabilidade": "Média",
+    "complexidade": "Média",
+    "observacoes": "Foco total em segurança de dados (LGPD) e estabilidade de vídeo.",
+    "resultado": "Sucesso. Lançado durante a pandemia com alta adesão."
+  },
+  {
+    "id": "proj_004",
+    "titulo": "Dashboard Financeiro B2B",
+    "segmento": "Finanças",
+    "descricao": "Sistema de análise de dados financeiros com gráficos complexos e relatórios automatizados para empresas.",
+    "tecnologias": ["React", "Python", "FastAPI", "PostgreSQL", "D3.js"],
+    "squad": {
+      "tech_lead": 1,
+      "frontend_developer": 2,
+      "data_engineer": 1,
+      "backend_developer": 1,
+      "ux_ui_designer": 1
+    },
+    "horas_estimadas": {
+      "tech_lead": 140,
+      "frontend_developer": 480,
+      "data_engineer": 320,
+      "backend_developer": 320,
+      "ux_ui_designer": 160
+    },
+    "horas_total": 1420,
+    "custo_estimado": 210000.00,
+    "prazo_semanas": 14,
+    "viabilidade": "Alta",
+    "complexidade": "Alta",
+    "observacoes": "Processamento de grandes volumes de dados em tempo real.",
+    "resultado": "Sucesso. Adotado por 50+ empresas no primeiro semestre."
+  },
+  {
+    "id": "proj_005",
+    "titulo": "Plataforma de E-learning",
+    "segmento": "Educação",
+    "descricao": "LMS customizado com suporte a vídeos, quizzes, fóruns e emissão de certificados.",
+    "tecnologias": ["Vue.js", "Node.js", "MySQL", "Vimeo API", "S3"],
+    "squad": {
+      "tech_lead": 0.5,
+      "fullstack_developer": 2,
+      "ux_ui_designer": 1,
+      "qa_engineer": 0.5
+    },
+    "horas_estimadas": {
+      "tech_lead": 80,
+      "fullstack_developer": 640,
+      "ux_ui_designer": 160,
+      "qa_engineer": 80
+    },
+    "horas_total": 960,
+    "custo_estimado": 120000.00,
+    "prazo_semanas": 10,
+    "viabilidade": "Alta",
+    "complexidade": "Baixa",
+    "observacoes": "Escalabilidade para suportar múltiplos acessos simultâneos a vídeos.",
+    "resultado": "Sucesso. 10.000+ alunos ativos na plataforma."
+  },
+  {
+    "id": "proj_006",
+    "titulo": "Rede Social Corporativa",
+    "segmento": "RH / Comunicação",
+    "descricao": "Ferramenta interna para colaboração de funcionários, com feed, grupos e chat.",
+    "tecnologias": ["React", "Node.js", "Socket.io", "PostgreSQL"],
+    "squad": {
+      "tech_lead": 1,
+      "fullstack_developer": 2,
+      "ux_ui_designer": 1,
+      "qa_engineer": 1
+    },
+    "horas_estimadas": {
+      "tech_lead": 100,
+      "fullstack_developer": 640,
+      "ux_ui_designer": 160,
+      "qa_engineer": 80
+    },
+    "horas_total": 980,
+    "custo_estimado": 135000.00,
+    "prazo_semanas": 10,
+    "viabilidade": "Alta",
+    "complexidade": "Média",
+    "observacoes": "Foco em engajamento e notificações push.",
+    "resultado": "Sucesso. Melhoria de 30% na comunicação interna."
+  },
+  {
+    "id": "proj_007",
+    "titulo": "MVP de Marketplace de Serviços",
+    "segmento": "Serviços",
+    "descricao": "Plataforma para conectar prestadores de serviços a clientes finais, com agendamento e pagamento.",
+    "tecnologias": ["React", "Firebase", "Stripe"],
+    "squad": {
+      "tech_lead": 0.5,
+      "fullstack_developer": 2,
+      "ux_ui_designer": 0.5
+    },
+    "horas_estimadas": {
+      "tech_lead": 40,
+      "fullstack_developer": 480,
+      "ux_ui_designer": 80
+    },
+    "horas_total": 600,
+    "custo_estimado": 75000.00,
+    "prazo_semanas": 6,
+    "viabilidade": "Alta",
+    "complexidade": "Baixa",
+    "observacoes": "Foco em velocidade de lançamento (Time to Market).",
+    "resultado": "Sucesso. Validou a hipótese de negócio e atraiu investidores."
+  },
+  {
+    "id": "proj_008",
+    "titulo": "Sistema de Automação Industrial",
+    "segmento": "Indústria",
+    "descricao": "Interface para controle de máquinas e monitoramento de sensores em linha de produção.",
+    "tecnologias": ["Electron", "React", "C++ (Backend)", "MQTT", "SQLite"],
+    "squad": {
+      "tech_lead": 1,
+      "frontend_developer": 1,
+      "embedded_engineer": 2,
+      "qa_engineer": 1
+    },
+    "horas_estimadas": {
+      "tech_lead": 200,
+      "frontend_developer": 320,
+      "embedded_engineer": 800,
+      "qa_engineer": 240
+    },
+    "horas_total": 1560,
+    "custo_estimado": 320000.00,
+    "prazo_semanas": 20,
+    "viabilidade": "Média",
+    "complexidade": "Crítica",
+    "observacoes": "Requisitos de tempo real e tolerância a falhas.",
+    "resultado": "Sucesso. Implementado em 3 plantas fabris."
+  }
+]

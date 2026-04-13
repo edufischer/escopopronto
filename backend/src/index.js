@@ -5,6 +5,7 @@ const cors = require('cors');
 const rateLimit = require('express-rate-limit');
 const authRoutes = require('./routes/authRoutes');
 const briefingRoutes = require('./routes/briefingRoutes');
+const escopoRoutes = require('./routes/escopoRoutes');
 
 const app = express();
 app.set('trust proxy', 1); // Necessário para o Railway e outros proxies reversos
@@ -60,6 +61,9 @@ app.use('/api/auth', authRoutes);
 
 // Rotas de Briefing
 app.use('/api/briefings', briefingRoutes);
+
+// Rotas de Escopo (IA / RAG) - Montadas em cima da estrutura de briefings
+app.use('/api/briefings', escopoRoutes);
 
 // Rota de Health Check
 app.get('/health', (req, res) => {

@@ -51,6 +51,7 @@ CREATE TABLE IF NOT EXISTS escopos_gerados (
     horas_estimadas JSONB NOT NULL,
     custo_estimado DECIMAL(12, 2) NOT NULL,
     viabilidade TEXT NOT NULL,
+    observacoes TEXT,
     falha_geracao BOOLEAN DEFAULT FALSE,
     criado_em TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
