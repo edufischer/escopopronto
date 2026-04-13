@@ -1,0 +1,35 @@
+{
+  "name": "escopocerto-backend",
+  "version": "1.0.0",
+  "description": "Backend para a plataforma EscopoCerto",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js"
+  },
+  "keywords": [
+    "express",
+    "node",
+    "ai",
+    "rag",
+    "claude",
+    "supabase"
+  ],
+  "author": "Eduardo de Castro Fischer",
+  "license": "ISC",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.20.1",
+    "@supabase/supabase-js": "^2.42.0",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "express-rate-limit": "^7.2.0",
+    "express-validator": "^7.0.1",
+    "helmet": "^7.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "nodemailer": "^8.0.5",
+    "openai": "^4.33.0",
+    "uuid": "^9.0.1"
+  }
+}

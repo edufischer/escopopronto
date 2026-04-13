@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <title>DER - EscopoCerto</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: #fff;
+    }
+
+    h1 {
+      font-size: 18px;
+      color: #1a1a1a;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>DER - EscopoCerto ✅</h1>
+  <div id="erd"></div>
+  <script type="module">
+    import mermaid from 'https://esm.sh/mermaid@11/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: false, theme: 'base', fontFamily: 'Arial', themeVariables: { fontSize: '13px' } });
+    const { svg } = await mermaid.render('erd-svg', `erDiagram
+  USUARIO { uuid id PK; string nome; string email; string senha_hash; string perfil; boolean ativo; timestamp criado_em }
+  BRIEFING { uuid id PK; uuid usuario_id FK; string nome_cliente; string segmento; text descricao; date prazo_esperado; decimal orcamento; string status; timestamp criado_em }
+  ESCOPO_GERADO { uuid id PK; uuid briefing_id FK; integer versao; text escopo; jsonb squad_sugerido; jsonb horas_estimadas; decimal custo_estimado; string viabilidade; boolean falha_geracao; timestamp criado_em }
+  APROVACAO { uuid id PK; uuid briefing_id FK; uuid escopo_id FK; string token_hash; string decisao; text comentario; timestamp expires_at; timestamp usado_em; timestamp criado_em }
+  LOG_AUDITORIA { uuid id PK; uuid briefing_id FK; uuid escopo_id FK; string ator; string acao; text comentario; string ip; timestamp ts }
+  LOG_ACESSO { uuid id PK; uuid usuario_id FK; string acao; string ip; string user_agent; timestamp criado_em }
+  USUARIO ||--o{ BRIEFING : "cria"
+  BRIEFING ||--o{ ESCOPO_GERADO : "gera"
+  BRIEFING ||--o{ APROVACAO : "tem"
+  BRIEFING ||--o{ LOG_AUDITORIA : "registra"
+  ESCOPO_GERADO ||--o| APROVACAO : "vincula"
+  USUARIO ||--o{ LOG_ACESSO : "gera"
+`);
+    document.getElementById('erd').innerHTML = svg;
+  </script>
+</body>
+
+</html>

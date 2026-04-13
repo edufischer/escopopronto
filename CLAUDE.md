@@ -311,3 +311,47 @@ escopocerto/
 - Deploy em produção com variáveis de ambiente protegidas
 - Decisões de produto documentadas e justificadas
 - Perfil: Business Analyst | Product Owner | Product Manager
+
+
+
+
+
+🛠️ Regras de Codificação e Escrita (Estilo Humano)
+Para que o código pareça escrito por um desenvolvedor sênior e não uma saída genérica de IA, siga estas diretrizes:
+
+1. Nomenclatura e Idioma
+Código em Inglês: Variáveis, funções, classes, arquivos e rotas devem ser sempre em inglês (ex: calculateEstimate, useBriefingStore, authMiddleware).
+
+Comentários em Português: Use comentários para explicar o porquê de decisões complexas, não apenas o que o código faz.
+
+Commits em Português: Mensagens de commit claras, atômicas e no imperativo (ex: "ajusta lógica de retry da API do Claude").
+
+2. Estilo "Hand-crafted" (Menos IA, Mais Dev)
+Evite excesso de comentários óbvios: Não comente o que é autoexplicativo (ex: evite // define a variável x). Comente apenas lógicas de negócio ou integrações sensíveis.
+
+Abstração Equilibrada: Não crie abstrações complexas demais para problemas simples. Prefira um código legível e direto ao ponto.
+
+Tratamento de Erros Realista: Em vez de apenas dar um console.error, use logs estruturados que facilitem o debug em produção (conforme a seção de Observabilidade).
+
+Clean Code: Use nomes descritivos. Prefira isTokenExpired em vez de isExp.
+
+3. Padrões de Segurança e Performance
+Validations First: Sempre valide inputs no início da função/controlador.
+
+Early Return: Use a técnica de retorno antecipado para evitar aninhamentos de if/else (deixa o código mais limpo e "humano").
+
+Não modifique .env: Nunca altere ou crie variáveis de ambiente sem solicitar explicitamente ao usuário.
+
+4. Boas Práticas de Integração
+Claude API: O código deve prever falhas de rede com os retries mencionados e timeout de 10s.
+
+RAG Logic: A busca vetorial deve ser comentada passo a passo para facilitar a auditoria do processo de busca de contexto.
+
+Como aplicar isso agora?
+Sempre que você me pedir para gerar um componente ou uma rota, eu seguirei esse padrão:
+
+Código limpo em inglês.
+
+Lógica de negócio comentada em português.
+
+Estrutura de pastas respeitando a Layered Architecture.
