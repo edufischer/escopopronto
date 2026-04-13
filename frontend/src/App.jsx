@@ -84,7 +84,7 @@ function App() {
               path="/briefings/:id"
               element={
                 <PrivateRoute>
-                  <DetalhesBriefing />
+                  <DetalheBriefing />
                 </PrivateRoute>
               }
             />

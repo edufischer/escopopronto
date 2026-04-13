@@ -3,15 +3,15 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useAuth } from '../hooks/useAuth';
 import api from '../services/api';
-import { 
-  ArrowLeft, 
-  Clock, 
-  CheckCircle2, 
-  AlertCircle, 
-  Send, 
-  RefreshCw, 
-  Users, 
-  DollarSign, 
+import {
+  ArrowLeft,
+  Clock,
+  CheckCircle2,
+  AlertCircle,
+  Send,
+  RefreshCw,
+  Users,
+  DollarSign,
   ChevronDown,
   FileText,
   ShieldCheck,
@@ -120,7 +120,7 @@ const DetalheBriefing = () => {
       </nav>
 
       <main className="max-w-7xl mx-auto px-6 mt-10">
-        <button 
+        <button
           onClick={() => navigate('/dashboard')}
           className="flex items-center gap-2 text-secondary hover:text-white transition-colors mb-8 group"
         >
@@ -141,7 +141,7 @@ const DetalheBriefing = () => {
           </div>
 
           <div className="flex gap-3">
-            <button 
+            <button
               onClick={handleReprocessar}
               disabled={reprocessando || briefing?.status === 'processando'}
               className="px-6 py-3 rounded-xl glass-card hover:bg-white/10 transition-all flex items-center gap-2 text-sm font-medium disabled:opacity-50"
@@ -149,7 +149,7 @@ const DetalheBriefing = () => {
               <RefreshCw size={18} className={reprocessando ? 'animate-spin' : ''} />
               <span>{reprocessando ? 'Reprocessando...' : 'Reprocessar'}</span>
             </button>
-            <button 
+            <button
               disabled={briefing?.status !== 'gerado'}
               className="px-6 py-3 rounded-xl bg-primary hover:bg-primary/90 text-white font-bold transition-all flex items-center gap-2 text-sm shadow-[0_0_20px_rgba(34,197,94,0.2)] disabled:opacity-50 disabled:cursor-not-allowed"
             >
@@ -162,7 +162,7 @@ const DetalheBriefing = () => {
         {/* Alerta de Processamento */}
         <AnimatePresence>
           {briefing?.status === 'processando' && (
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
