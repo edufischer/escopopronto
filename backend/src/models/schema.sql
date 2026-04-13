@@ -20,7 +20,7 @@ CREATE TABLE IF NOT EXISTS briefings (
     nome_cliente VARCHAR(255) NOT NULL,
     segmento VARCHAR(255) NOT NULL,
     descricao TEXT NOT NULL,
-    prazo DATE NOT NULL,
+    prazo_esperado DATE NOT NULL,
     orcamento DECIMAL(12, 2),
     status VARCHAR(50) NOT NULL DEFAULT 'rascunho' CHECK (
         status IN (

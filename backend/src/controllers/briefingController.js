@@ -16,7 +16,7 @@ const briefingController = {
       return res.status(400).json({ errors: errors.array() });
     }
 
-    const { nome_cliente, segmento, descricao, prazo, orcamento } = req.body;
+    const { nome_cliente, segmento, descricao, prazo_esperado, orcamento } = req.body;
     const usuarioId = req.user.id; // Extraído do middleware de auth JWT
 
     try {
@@ -24,7 +24,7 @@ const briefingController = {
         nome_cliente,
         segmento,
         descricao,
-        prazo,
+        prazo_esperado,
         orcamento
       });
 

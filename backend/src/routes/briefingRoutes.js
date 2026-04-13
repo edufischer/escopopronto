@@ -24,7 +24,7 @@ router.post(
     body('nome_cliente').trim().notEmpty().withMessage('O nome do cliente é obrigatório.'),
     body('segmento').trim().notEmpty().withMessage('O segmento é obrigatório.'),
     body('descricao').trim().notEmpty().withMessage('A descrição em linguagem natural é obrigatória.'),
-    body('prazo').isDate().withMessage('O prazo informado deve ser uma data válida.'),
+    body('prazo_esperado').isDate().withMessage('O prazo esperado informado deve ser uma data válida.'),
     body('orcamento').optional().isFloat({ min: 0 }).withMessage('O orçamento deve ser um valor numérico positivo.')
   ],
   briefingController.create

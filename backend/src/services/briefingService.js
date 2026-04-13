@@ -9,7 +9,7 @@ const briefingService = {
    * Valida e cria um novo briefing para um usuário.
    */
   async createBriefing(usuarioId, dados) {
-    const { nome_cliente, segmento, descricao, prazo, orcamento } = dados;
+    const { nome_cliente, segmento, descricao, prazo_esperado, orcamento } = dados;
 
     // Persiste o briefing via model
     const briefing = await briefingModel.create({
@@ -17,7 +17,7 @@ const briefingService = {
       nome_cliente,
       segmento,
       descricao,
-      prazo,
+      prazo_esperado,
       orcamento,
       status: 'rascunho'
     });
