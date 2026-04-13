@@ -1,12 +1,12 @@
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
-import { 
-  FileText, 
-  Cpu, 
-  CheckCircle, 
-  ChevronDown, 
-  Check, 
-  ArrowRight 
+import {
+  FileText,
+  Cpu,
+  CheckCircle,
+  ChevronDown,
+  Check,
+  ArrowRight
 } from 'lucide-react';
 
 /**
@@ -38,7 +38,7 @@ const Landing = () => {
       <section className="relative h-screen w-full flex flex-col items-center justify-center overflow-hidden bg-background">
         {/* Efeito Aurora Animado */}
         <div className="absolute inset-0 z-0">
-          <motion.div 
+          <motion.div
             animate={{
               scale: [1, 1.2, 1],
               opacity: [0.1, 0.2, 0.1],
@@ -58,7 +58,7 @@ const Landing = () => {
             <span className="text-primary">✅</span>
             <span className="text-white">EscopoCerto</span>
           </div>
-          <button 
+          <button
             onClick={() => navigate('/login')}
             className="px-6 py-2 rounded-full glass-card text-white hover:bg-white/10 transition-colors"
           >
@@ -68,7 +68,7 @@ const Landing = () => {
 
         {/* Conteúdo Central Hero */}
         <div className="relative z-10 flex flex-col items-center text-center px-4 max-w-4xl mx-auto">
-          <motion.h1 
+          <motion.h1
             initial="hidden"
             animate="visible"
             variants={fadeInUp}
@@ -76,8 +76,8 @@ const Landing = () => {
           >
             O que o cliente espera é o que será entregue.
           </motion.h1>
-          
-          <motion.p 
+
+          <motion.p
             initial="hidden"
             animate="visible"
             variants={{
@@ -86,7 +86,7 @@ const Landing = () => {
             }}
             className="text-lg md:text-xl text-secondary mb-10 max-w-2xl"
           >
-            Plataforma de escopo inteligente para software houses. 
+            Plataforma de escopo inteligente para software houses.
             Reduza o gap entre comercial e técnico com IA fundamentada em RAG.
           </motion.p>
 
@@ -107,7 +107,7 @@ const Landing = () => {
         </div>
 
         {/* Scroll Indicator */}
-        <motion.div 
+        <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
           className="absolute bottom-10 z-10 text-secondary/50"
@@ -130,7 +130,7 @@ const Landing = () => {
             <p className="text-secondary">Três passos para alinhar expectativas e acelerar propostas.</p>
           </motion.div>
 
-          <motion.div 
+          <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -188,7 +188,7 @@ const Landing = () => {
             <motion.h2 variants={fadeInUp} className="text-3xl md:text-4xl font-bold text-white mb-8">
               Por que o EscopoCerto?
             </motion.h2>
-            
+
             <div className="space-y-6">
               {[
                 "Escopo gerado em minutos, não em dias",
@@ -197,7 +197,7 @@ const Landing = () => {
                 "Sem gap entre expectativa e entrega",
                 "Base de conhecimento real via RAG"
               ].map((item, index) => (
-                <motion.div 
+                <motion.div
                   key={index}
                   variants={fadeInUp}
                   className="flex items-center gap-4 text-secondary"
@@ -248,7 +248,7 @@ const Landing = () => {
       <section className="py-24 px-6 relative overflow-hidden">
         {/* Gradiente de Fundo */}
         <div className="absolute inset-0 bg-gradient-to-b from-background to-[#052e16] z-0" />
-        
+
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <motion.div
             initial="hidden"
@@ -281,7 +281,9 @@ const Landing = () => {
             <span>✅</span> EscopoCerto
           </div>
           <p className="text-secondary/50 text-sm">
-            © 2026 EscopoCerto. Todos os direitos reservados.
+            © 2026 EscopoCerto
+            Projeto acadêmico desenvolvido para fins de portfólio profissional.
+            Sem vínculo com o domínio escopocerto.com.br.
           </p>
         </div>
       </footer>
