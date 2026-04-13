@@ -53,7 +53,7 @@ const aiService = {
 
             // Chamada à API do Claude
             const response = await anthropic.messages.create({
-                model: 'claude-sonnet-4-5-20251001', // Modelo mais avançado para geração de escopo
+                model: 'claude-sonnet-4-6', // Modelo mais avançado para geração de escopo
                 max_tokens: 4000,
                 messages: [{ role: 'user', content: prompt }],
                 system: 'Você é um assistente técnico que responde exclusivamente em JSON válido.'
