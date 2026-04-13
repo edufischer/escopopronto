@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const OpenAI = require('openai');
-const supabase = require('../db');
+const supabase = require('../../models/db');
 
 const openai = new OpenAI({
     apiKey: process.env.OPENAI_API_KEY,
